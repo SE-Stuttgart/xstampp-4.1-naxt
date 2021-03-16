@@ -1,0 +1,47 @@
+:host {
+  flex: 1 0 100%;
+  margin-bottom: 5px;
+  display: block;
+  height: 100%;
+  // max-height: 100%;
+  // background-color: greenyellow;
+  // height: 50px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.sysdescr-tb {
+  top: 4px;
+  position: relative;
+}
+
+.horizontal-center {
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.mat-dialog-actions {
+  text-align: center;
+  display: block;
+}
+
+mat-dialog-content {
+  text-align: center;
+}
+.texteditor {
+  float: left;
+  width: 100%;
+  height: fit-content;
+}
+.linkedDocument {
+  float: left;
+  padding-left: 10px;
+  height: auto;
+}
+.parent {
+  //overflow: auto;
+  display: flex;
+  width: 100%;
+}

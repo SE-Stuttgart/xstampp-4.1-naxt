@@ -1,0 +1,41 @@
+import { ControlStructureProject } from '@src-shared/control-structure/models';
+import * as _ from '../../models';
+
+export interface CastProject extends ControlStructureProject {
+  systemDescription: _.SystemDescription;
+  accidentDescription: _.AccidentDescription;
+  changesAndDynamicsOverTimes: _.ChangesAndDynamicsOverTime[];
+  communicationAndCoordination: _.CommunicationAndCoordination[];
+  constraints: _.Constraint[];
+  events: _.Event[];
+  hazards: _.Hazard[];
+  internalAndExternalEconomics: _.InternalAndExternalEconomics[];
+  otherFactors: _.OtherFactors;
+  processVariables: _.ProcessVariable[];
+  questionAndAnswers: _.QuestionAndAnswer[];
+  recommendations: _.Recommendation[];
+  responsibilities: _.Responsibility[];
+  roleInTheAccidents: _.RoleInTheAccident[];
+  safetyCultures: _.SafetyCulture[];
+  safetyInformationSystems: _.SafetyInformationSystem[];
+  safetyManagementSystems: _.SafetyManagementSystem[];
+  subRecommendations: _.SubRecommendation[];
+  changesAndDynamicsOverTimeDescription: _.ChangesAndDynamicsOverTimeDescription;
+  communicationAndCoordinationDescription: _.CommunicationAndCoordinationDescription;
+  internalAndExternalEconomicsDescription: _.InternalAndExternalEconomicsDescription;
+  safetyCultureDescription: _.SafetyCultureDescription;
+  safetyInformationSystemDescription: _.SafetyInformationSystemDescription;
+  safetyManagementSystemDescription: _.SafetyManagementSystemDescription;
+  questionComponentLinks: _.QuestionComponentLink[];
+  constraintHazardLinks: _.ConstraintHazardLink[];
+  constraintResponsibilityLinks: _.ConstraintResponsibilityLink[];
+  controllerResponsibilityLinks: _.ControllerResponsibilityLink[];
+  changesAndDynamicsOverTimeControllerLinks: _.ChangesAndDynamicsOverTimeControllerLink[];
+  communicationAndCoordinationController1Links: _.CommunicationAndCoordinationControllerLink[];
+  communicationAndCoordinationController2Links: _.CommunicationAndCoordinationControllerLink[];
+  internalAndExternalEconomicsControllerLinks: _.InternalAndExternalEconomicsControllerLink[];
+  safetyCultureControllerLinks: _.SafetyCultureControllerLink[];
+  safetyInformationSystemControllerLinks: _.SafetyInformationSystemControllerLink[];
+  safetyManagementSystemControllerLinks: _.SafetyManagementSystemControllerLink[];
+  lastIdEntries: _.LastIdEntry[];
+}

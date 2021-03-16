@@ -1,0 +1,63 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-12 row-1">
+      <naxt-dropdown-control
+        [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATECA.SUBCATEGORIES' | translate"
+        [dropdownList]="listofSubCategories"
+        [(value)]="chosenSubCategory"
+        (valueChange)="OnChangeChosenSubCategory($event)"
+      ></naxt-dropdown-control>
+    </div>
+    <div class="col-1 row-2">
+      <naxt-dropdown-control
+        [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATECA.CONTROLLER' | translate"
+        [dropdownList]="dropDownList"
+        [(value)]="chosenController"
+        (valueChange)="OnChangeChosenController($event)"
+      ></naxt-dropdown-control>
+    </div>
+    <div class="col-1 row-3">
+      <naxt-text-control
+        [(value)]="chosenControlAction"
+        (valueChange)="OnChangeChosenControlAction($event)"
+        [readonly]="true"
+      ></naxt-text-control>
+    </div>
+    <div class="col-2 row-2">
+      <naxt-multi-line-text
+        [(value)]="description"
+        [maxRows]="6"
+        (valueChange)="OnChangeDescriptionChange($event)"
+        [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATECA.DESCRIPTION' | translate"
+      ></naxt-multi-line-text>
+    </div>
+  </div>
+  <div *ngIf="chosenSubCategory === inadequateCaOverTime" class="margin">
+    <div class="col-12 row-3">
+      <naxt-multi-line-text
+        [(value)]="descriptionIndequate"
+        [maxRows]="3"
+        (valueChange)="OnChangeDescriptionIndequateChange($event)"
+        [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATECA.DESCRIPTIONIN' | translate"
+      ></naxt-multi-line-text>
+    </div>
+  </div>
+  <div *ngIf="chosenSubCategory === byAttacker">
+    <div class="col-12 row-3">
+      <naxt-multi-line-text
+        [(value)]="descriptionAttacker"
+        (valueChange)="OnChangeDescriptionAttackerChange($event)"
+        [maxRows]="2"
+        [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATECA.DESCRIPTIONBY' | translate"
+      ></naxt-multi-line-text>
+    </div>
+    <div class="col-12 row-3">
+      <naxt-multi-line-text
+        [(value)]="descriptionProcedure"
+        (valueChange)="OnChangeDescriptionProcedureChange($event)"
+        [maxRows]="3"
+        [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATECA.DESCRIPTIONPRO' | translate"
+      ></naxt-multi-line-text>
+    </div>
+  </div>
+</div>

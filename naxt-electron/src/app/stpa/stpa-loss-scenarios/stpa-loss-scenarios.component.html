@@ -1,0 +1,144 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-table
+        #table
+        [rowData]="lossScenarioData"
+        [columnDefinitions]="columns"
+        [showStateColumn]="true"
+        [showDeleteColumn]="true"
+        [detailRowTemplate]="_subTemplate_"
+        [filterShowMenu]="true"
+        [menuMapList]="menuMapLossScenario"
+        (menuMapEmit)="createLossScenario($event)"
+        [parent]="['PLUSBUTTONPARENT.CONTROLACTION' | translate, 'PLUSBUTTONPARENT.UCA' | translate]"
+        [deleteObjects]="['STPA.IMPEMENTATIONCONSTRAINTS.TITLE' | translate]"
+      ></naxt-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #_subTemplate_ let-row="row">
+  <div class="naxt-sub-detail-grid">
+    <div class="col-12 detail-heading">
+      <h4>{{ 'STPA.LOSSSCENARIOS.TITLETABLE' | translate }}</h4>
+    </div>
+    <div class="col-12 row-12">
+      <mat-horizontal-stepper class="width">
+        <div>
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>General Information</ng-template>
+              <div>
+                <naxt-text-control [(value)]="row.name" [label]="'STPA.NAME' | translate"></naxt-text-control>
+              </div>
+              <div>
+                <!--               <naxt-text-control [(value)]="row.controlAction.name" [readonly]="true" [label]="'STPA.LOSSSCENARIOS.GENERAL.CONTROLLACTION' | translate"></naxt-text-control>-->
+                <naxt-chip-controller
+                  [singleChip]="true"
+                  [readonly]="true"
+                  [chipList]="row?.controlActionChips"
+                  [label]="'STPA.LOSSSCENARIOS.GENERAL.LINKEDCONTROLACTION' | translate"
+                ></naxt-chip-controller>
+              </div>
+              <div>
+                <!--                <naxt-text-control [(value)]="row.unsafeControlAction.name" [readonly]="true" [label]="'STPA.LOSSSCENARIOS.GENERAL.UCA' | translate"></naxt-text-control>-->
+                <naxt-chip-controller
+                  [singleChip]="true"
+                  [readonly]="true"
+                  [chipList]="row?.unsafeControlActionChips"
+                  [label]="'STPA.LOSSSCENARIOS.GENERAL.LINKEDUCA' | translate"
+                ></naxt-chip-controller>
+              </div>
+              <div>
+                <naxt-multi-line-text
+                  [(value)]="row.unsafeControlAction.category"
+                  [maxRows]="1"
+                  [readonlyTextArea]="true"
+                  [label]="'STPA.LOSSSCENARIOS.GENERAL.TYPE' | translate"
+                ></naxt-multi-line-text>
+              </div>
+
+              <div>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+              <ng-template matStepLabel> Category</ng-template>
+              <naxt-dropdown-control
+                [label]="'STPA.LOSSSCENARIOS.CATEGORY.CATEGORIES' | translate"
+                [dropdownList]="listOfCategories"
+                [(value)]="row.headCategory"
+              ></naxt-dropdown-control>
+              <naxt-stpa-failures
+                *ngIf="row.headCategory === failures"
+                [(chosenController)]="row.controller1Id"
+                [listOfControllers]="row.controllers"
+                [(description)]="row.description1"
+              >
+              </naxt-stpa-failures>
+              <naxt-stpa-inadequate-ca
+                *ngIf="row.headCategory === inadequateCa"
+                [(chosenSubCategory)]="row.subCategory"
+                [listOfControllers]="row.controllers"
+                [(chosenController)]="row.controller1Id"
+                [(chosenControlAction)]="row.controlAction.name"
+                [(description)]="row.description1"
+                [(descriptionAttacker)]="row.description2"
+                [(descriptionIndequate)]="row.description2"
+                [(descriptionProcedure)]="row.description3"
+              ></naxt-stpa-inadequate-ca>
+              <naxt-stpa-unsafe-ci
+                *ngIf="row.headCategory === unsafeCI"
+                [(subCategory)]="row.subCategory"
+                [(chosenControlAction)]="row.controlAction.name"
+                [listOfControllers]="row.controllers"
+                [listOfControllers2]="row.controllers"
+                [(chosenSourceController)]="row.controller1Id"
+                [(chosenTargetController)]="row.controller2Id"
+              ></naxt-stpa-unsafe-ci>
+              <naxt-stpa-inadequate-pm
+                *ngIf="row.headCategory === inadequatePm"
+                [(chosenSubCategory)]="row.subCategory"
+                [listOfControllers]="row.controllers"
+                [listOfFeedbacks]="row.feedback"
+                [listOfInputs]="row.inputs"
+                [listOfSensors]="row.sensors"
+                [listOfBoxes]="row.boxes"
+                [(chosenController)]="row.controller1Id"
+                [(chosenFeedback)]="row.feedbackArrowId"
+                [(chosenInput)]="row.inputArrowId"
+                [(chosenInputBox)]="row.inputBoxId"
+                [(chosenPossibleFeedbackReason)]="row.reason"
+                [(chosenPossibleSensorReason)]="row.reason"
+                [(chosenSensor)]="row.sensorId"
+                [(descriptionReason)]="row.description2"
+                [(descriptionWrong)]="row.description1"
+              ></naxt-stpa-inadequate-pm>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="thirdFormGroup">
+            <form [formGroup]="thirdFormGroup">
+              <ng-template matStepLabel> Description</ng-template>
+              <naxt-multi-line-text
+                [maxRows]="3"
+                [(value)]="row.description"
+                [label]="'STPA.DESCRIPTION' | translate"
+              ></naxt-multi-line-text>
+              <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+              </div>
+            </form>
+          </mat-step>
+        </div>
+      </mat-horizontal-stepper>
+    </div>
+  </div>
+</ng-template>

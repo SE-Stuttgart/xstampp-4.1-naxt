@@ -1,0 +1,37 @@
+@import '~style/table-grid.scss';
+
+.naxt-detail-grid {
+  @include naxt-detail-grid(1, 1, false);
+}
+
+.naxt-sub-detail-grid {
+  @include naxt-detail-grid(6, 3);
+}
+
+.row-extra {
+  margin-bottom: 10px;
+  overflow-y: auto;
+}
+
+#test {
+  display: flex;
+  padding-top: 7px;
+  justify-content: space-around;
+}
+
+.text-field {
+  width: 100%;
+}
+
+.left {
+  width: 150px;
+  padding-top: 4px;
+}
+
+.middle {
+  width: calc(100% - 180px);
+}
+
+#button-color {
+  color: dimgrey;
+}

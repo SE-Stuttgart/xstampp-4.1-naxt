@@ -1,0 +1,17 @@
+<div class="controller-wrapper">
+  <mat-form-field class="content" [hintLabel]="hintedLabel">
+    <input
+      [readonly]="readonly"
+      [required]="required"
+      [ngModel]="value"
+      (ngModelChange)="onChange($event)"
+      matInput
+      #input
+      maxlength="128"
+      [placeholder]="label"
+      (blur)="blur.emit()"
+    />
+
+    <mat-hint *ngIf="!readonly && !notWanted" align="end">{{ input.value?.length || 0 }}/128</mat-hint>
+  </mat-form-field>
+</div>

@@ -1,0 +1,30 @@
+<nav mat-tab-nav-bar class="main-menu">
+  <a mat-tab-link [routerLink]="'home'" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive || isHome">
+    HOME
+  </a>
+  <a
+    mat-tab-link
+    *ngFor="let navPoint of navPoints | async"
+    [routerLink]="
+      navPoint.subPath && navPoint.subPath.length > 0
+        ? navPoint.projectType + '/' + navPoint.projectId + '/' + navPoint.subPath
+        : navPoint.projectType + '/' + navPoint.projectId
+    "
+    routerLinkActive
+    #rla="routerLinkActive"
+    [active]="rla.isActive || isActive(navPoint.projectId)"
+  >
+    {{ navPoint.fileName }}
+    <button
+      color="primary"
+      (click)="closeClick($event, navPoint)"
+      mat-icon-button
+      aria-label="Example icon-button with a heart icon"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </a>
+</nav>
+<div class="body-wrapper">
+  <router-outlet></router-outlet>
+</div>

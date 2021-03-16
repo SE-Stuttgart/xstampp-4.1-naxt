@@ -1,0 +1,35 @@
+@import '~@angular/material/theming';
+
+$app-primary: mat-palette($mat-indigo);
+$app-grey: mat-palette($mat-grey);
+$app-blue-grey: mat-palette($mat-blue-grey);
+$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
+
+p {
+  margin-left: 5px;
+  font-weight: bolder;
+}
+
+.mat-nav-list {
+  padding-left: 5px;
+  height: calc(100% - 70px);
+  overflow-y: auto;
+
+  p {
+    margin-left: 0px;
+    font-weight: bolder;
+  }
+
+  .separator {
+    margin-left: 0;
+    margin-right: 5px;
+    height: 1px;
+    border-bottom: 1.5px solid mat-color($app-grey);
+  }
+
+  .mat-list-item {
+    &.active {
+      box-shadow: inset 8px 0px mat-color($app-primary);
+    }
+  }
+}

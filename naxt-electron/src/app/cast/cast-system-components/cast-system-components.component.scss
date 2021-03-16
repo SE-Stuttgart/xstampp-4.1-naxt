@@ -1,0 +1,38 @@
+@import 'style/table-grid.scss';
+
+.naxt-detail-grid {
+  @include naxt-detail-grid(1, 1, false);
+}
+
+.naxt-sub-detail-grid {
+  @include naxt-detail-grid(2, 3);
+}
+
+.width100 {
+  width: 100%;
+  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  .navList {
+    width: 70% !important ;
+  }
+  .icons {
+    width: 30%;
+  }
+  .width80 {
+    width: 93%;
+  }
+
+  .width20 {
+    //margin-top: 15px;
+    //margin-left: 10px;
+    //height: 55px;
+    width: 6%;
+  }
+
+  .heigth20 {
+    //height: fit-content;
+    padding-top: 7px;
+  }
+}

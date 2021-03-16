@@ -1,0 +1,57 @@
+:host {
+  flex: 1 0 100%;
+  margin-bottom: 5px;
+}
+
+.controller-wrapper {
+  min-height: 66px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  align-self: center;
+}
+
+.toggle-button {
+  padding: 0;
+  min-width: 36px;
+  // max-width: 100px;
+  // width: 100px;
+  cursor: pointer;
+
+  &:hover {
+    background: grey;
+  }
+
+  &.toggle {
+    background: grey;
+    color: white;
+  }
+}
+
+.list-separator {
+  width: 100%;
+  height: 1px;
+  background: black;
+}
+
+.empty {
+  color: #555555;
+  text-align: center;
+  font-size: small;
+}
+
+.matMenuTitle {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0.6em;
+  margin-right: 0.6em;
+
+  font-size: small;
+  font-weight: 500;
+}
+
+.pp {
+  white-space: nowrap;
+}

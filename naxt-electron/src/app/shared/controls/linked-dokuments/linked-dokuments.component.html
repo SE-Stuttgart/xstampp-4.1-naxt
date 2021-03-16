@@ -1,0 +1,42 @@
+<button mat-button (click)="toggle(sideNav)">
+  <mat-icon *ngIf="!sideNavButton">chevron_right</mat-icon><mat-icon *ngIf="sideNavButton">chevron_left</mat-icon>
+</button>
+<mat-drawer-container autosize>
+  <mat-drawer #sideNav mode="side"></mat-drawer>
+
+  <mat-drawer-content *ngIf="sideNavButton">
+    <div class="title">
+      <p>
+        {{ 'CAST.LINKEDDOCUMENTS' | translate }}
+      </p>
+      <button mat-icon-button (click)="openDialog()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <div class="card">
+      <mat-card *ngFor="let item of linkedDokumentslist | keyvalue" class="cardBottom">
+        <mat-card-content>
+          <div class="content">
+            <p>
+              {{ item.value.name }}
+            </p>
+          </div>
+
+          <!--suche das richtige Icon für url-->
+          <div class="button">
+            <button mat-button (click)="openFile(item)">
+              <mat-icon> insert_drive_file</mat-icon>
+            </button>
+            <button mat-button (click)="delete(item)">
+              <mat-icon> delete</mat-icon>
+            </button>
+            <button mat-button (click)="change(item)">
+              <mat-icon> edit</mat-icon>
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

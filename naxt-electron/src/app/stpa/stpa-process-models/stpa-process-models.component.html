@@ -1,0 +1,51 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-table
+        #table
+        [rowData]="processModelData"
+        [columnDefinitions]="columns"
+        [showStateColumn]="true"
+        [showDeleteColumn]="true"
+        [detailRowTemplate]="_subTemplate_"
+        [filterShowMenu]="true"
+        [menuList]="menuList"
+        (menuEmit)="createProcessModel($event)"
+        [parent]="['PLUSBUTTONPARENT.CONTROLLER' | translate]"
+      ></naxt-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #_subTemplate_ let-row="row">
+  <div class="naxt-sub-detail-grid">
+    <div class="col-12 detail-heading">
+      <h4>{{ 'STPA.PROCESSMODELS.TITLETABLE' | translate }}</h4>
+    </div>
+
+    <div class="col-1 row-1">
+      <naxt-text-control [(value)]="row.name" [label]="'STPA.NAME' | translate"></naxt-text-control>
+    </div>
+
+    <div class="col-1 row-2">
+      <naxt-chip-controller
+        [singleChip]="true"
+        [chipList]="row?.controllerChips"
+        [label]="'STPA.PROCESSMODELS.LINKEDCONTROLLER' | translate"
+        [readonly]="false"
+        (addChip)="addControllerLink(row, $event)"
+        (removeChip)="removeControllerLink(row)"
+      ></naxt-chip-controller>
+    </div>
+    <div class="col-2 row-1">
+      <naxt-multi-line-text
+        [maxRows]="4"
+        [(value)]="row.description"
+        [label]="'STPA.DESCRIPTION' | translate"
+      ></naxt-multi-line-text>
+    </div>
+    <div class="col-2 row-2">
+      <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,56 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-table
+        #table
+        [rowData]="hazardData"
+        [columnDefinitions]="columns"
+        [showStateColumn]="true"
+        [showDeleteColumn]="true"
+        [detailRowTemplate]="_subTemplate_"
+        (addEmit)="createHazard()"
+      ></naxt-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #_subTemplate_ let-row="row">
+  <div class="naxt-sub-detail-grid">
+    <div class="col-12 detail-heading">
+      <h4>{{ 'CAST.HAZARDS.TITLETABLE' | translate }}</h4>
+    </div>
+
+    <div class="col-1 row-1">
+      <naxt-text-control [(value)]="row.name" [label]="'CAST.NAME' | translate"></naxt-text-control>
+    </div>
+
+    <div class="col-1 row-2">
+      <naxt-chip-controller
+        [singleChip]="false"
+        [chipList]="row?.linkedConstraints"
+        [label]="'CAST.HAZARDS.LINKEDCONSTRAINT' | translate"
+        (addChip)="addConstraintLink(row, $event)"
+        (removeChip)="removeConstraintLink(row, $event)"
+      ></naxt-chip-controller>
+    </div>
+    <div class="col-2 row-12">
+      <naxt-multi-line-text
+        [maxRows]="7"
+        [(value)]="row.description"
+        [label]="'CAST.DESCRIPTION' | translate"
+      ></naxt-multi-line-text>
+    </div>
+    <div class="col-2 row-3">
+      <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+    </div>
+    <div class="col-12 row-4 testClass">
+      <naxt-question-control
+        *ngIf="!!table.expandedRow && table.expandedRow?.tableId === row?.tableId"
+        (addEmit)="createHazardQuestionLink($event)"
+        [(value)]="textOfTextfield"
+        [add]="[row, 'Hazard', row.id]"
+      ></naxt-question-control>
+    </div>
+  </div>
+</ng-template>
+<!-- (addEmit)="createHazardQuestionLink($event)" [questionArray]="listOfLinkedHazard" -->

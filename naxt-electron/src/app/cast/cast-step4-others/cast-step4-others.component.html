@@ -1,0 +1,12 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-text-editor
+        *ngIf="!!otherFactors"
+        [(content)]="otherFactors.description"
+        [(linkedDokumentList)]="otherFactors.linkedDocuments"
+        (saveEmit)="save()"
+      ></naxt-text-editor>
+    </div>
+  </div>
+</div>

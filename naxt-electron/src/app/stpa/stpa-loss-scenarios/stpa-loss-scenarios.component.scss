@@ -1,0 +1,17 @@
+@import 'style/table-grid.scss';
+
+.naxt-detail-grid {
+  @include naxt-detail-grid(1, 1, false);
+}
+
+.naxt-sub-detail-grid {
+  @include naxt-detail-grid(2, 2);
+}
+
+:host {
+  flex: 1 0 100%;
+  margin-bottom: 5px;
+}
+.width {
+  width: 100%;
+}

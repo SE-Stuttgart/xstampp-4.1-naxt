@@ -1,0 +1,63 @@
+<h1>{{ data?.headline }}</h1>
+
+<mat-horizontal-stepper [linear]="true" #stepper>
+  <mat-step *ngIf="!!data?.liste3" [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>{{ data?.headline3 }}</ng-template>
+      <mat-radio-group
+        aria-label="Select an option"
+        class="naxt-radio-group"
+        [required]="true"
+        [formGroup]="firstFormGroup"
+        [formControlName]="'firstCtrl'"
+      >
+        <mat-radio-button *ngFor="let entry of data?.liste3" [value]="entry?.tableId" class="naxt-radio-button">
+          {{ entry?.name }}
+        </mat-radio-button>
+      </mat-radio-group>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step *ngIf="!!data?.liste2" [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>{{ data?.headline2 }}</ng-template>
+      <mat-radio-group
+        aria-label="Select an option"
+        [required]="true"
+        [formGroup]="secondFormGroup"
+        class="naxt-radio-group"
+        [formControlName]="'firstCtrl'"
+      >
+        <mat-radio-button *ngFor="let entry of data?.liste2" [value]="entry?.tableId" class="naxt-radio-button">{{
+          entry?.name
+        }}</mat-radio-button>
+      </mat-radio-group>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step *ngIf="!!data?.liste1" [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>{{ data?.headline1 }}</ng-template>
+      <mat-radio-group
+        aria-label="Select an option"
+        [required]="true"
+        [formGroup]="thirdFormGroup"
+        class="naxt-radio-group"
+        [formControlName]="'firstCtrl'"
+      >
+        <mat-radio-button *ngFor="let entry of data?.liste1" [value]="entry?.tableId" class="naxt-radio-button">
+          {{ entry?.name }}
+        </mat-radio-button>
+      </mat-radio-group>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="accept()" [disabled]="!thirdFormGroup?.get('firstCtrl')?.value">Accept</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>

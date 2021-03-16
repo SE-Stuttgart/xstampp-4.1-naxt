@@ -1,0 +1,168 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-table
+        #table
+        [rowData]="roleInTheAccidentData"
+        [columnDefinitions]="columns"
+        [showStateColumn]="true"
+        [showDeleteColumn]="false"
+        [detailRowTemplate]="_subTemplate_"
+        [hideAdd]="true"
+      ></naxt-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #_subTemplate_ let-row="row">
+  <div class="naxt-sub-detail-grid" *ngIf="row.componentType === 'controller'; else controllerView">
+    <div class="col-12 detail-heading">
+      <h4>{{ 'CAST.ROLEINTHEACCIDENT.TITLETABLE' | translate }}</h4>
+    </div>
+    <div class="col-12 row-12">
+      <div class="width">
+        <mat-horizontal-stepper>
+          <mat-step>
+            <ng-template matStepLabel> general information </ng-template>
+            <div>
+              <naxt-text-control [(value)]="row.name" [label]="'CAST.NAME' | translate"></naxt-text-control>
+            </div>
+            <div>
+              <naxt-chip-controller
+                [singleChip]="true"
+                [chipList]="row.componentChips"
+                [label]="'CAST.ROLEINTHEACCIDENT.LINKEDCONTROLLER' | translate"
+                [readonly]="true"
+              >
+              </naxt-chip-controller>
+            </div>
+            <div>
+              <naxt-text-control
+                [label]="'CAST.ROLEINTHEACCIDENT.COMPONENTTYPE' | translate"
+                [(value)]="row.componentType"
+                [readonly]="true"
+              ></naxt-text-control>
+            </div>
+            <div>
+              <naxt-multi-line-text
+                [maxRows]="3"
+                [(value)]="row.description"
+                [label]="'CAST.ROLEINTHEACCIDENT.FLAWS' | translate"
+              ></naxt-multi-line-text>
+            </div>
+
+            <div>
+              <naxt-multi-line-text
+                [maxRows]="3"
+                [(value)]="row.rule"
+                [label]="'CAST.ROLEINTHEACCIDENT.RULE' | translate"
+              ></naxt-multi-line-text>
+            </div>
+            <div>
+              <naxt-multi-line-text
+                [maxRows]="3"
+                [(value)]="row.explanation"
+                [label]="'CAST.ROLEINTHEACCIDENT.BEHAVIOUR' | translate"
+              ></naxt-multi-line-text>
+            </div>
+            <div>
+              <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+            </div>
+            <div>
+              <naxt-question-control
+                (addEmit)="createRoleInTheAccidentQuestionLink($event)"
+                *ngIf="!!table.expandedRow && table.expandedRow?.tableId === row?.tableId"
+                [(value)]="textOfTextfield"
+                [add]="[row, 'RoleInTheAccident', row.id]"
+              ></naxt-question-control>
+            </div>
+            <div *ngIf="row.component.processVariables.length > 0">
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
+          <mat-step *ngFor="let processvariable of row.component.processVariables; last as isLast">
+            <ng-template matStepLabel> analysis of {{ processvariable.name }} </ng-template>
+            <div>
+              <naxt-text-control [(value)]="processvariable.name" [readonly]="true"></naxt-text-control>
+            </div>
+            <div>
+              <naxt-multi-line-text
+                [maxRows]="2"
+                [(value)]="processvariable.currentValue"
+                [label]="'CAST.ROLEINTHEACCIDENT.CURRRENTVALUEPV' | translate"
+              ></naxt-multi-line-text>
+            </div>
+            <div>
+              <naxt-multi-line-text
+                [maxRows]="2"
+                [(value)]="processvariable.flaws"
+                [label]="'CAST.ROLEINTHEACCIDENT.MISTAKESPV' | translate"
+              ></naxt-multi-line-text>
+            </div>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext *ngIf="!isLast">Next</button>
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #controllerView>
+    <div class="naxt-sub-detail-grid2">
+      <div class="col-12 row-1">
+        <naxt-text-control [(value)]="row.name" [label]="'CAST.NAME' | translate"></naxt-text-control>
+      </div>
+      <div class="col-12 row-2">
+        <naxt-chip-controller
+          [singleChip]="true"
+          [chipList]="row.componentChips"
+          [label]="'CAST.RESPONSIBILITIES.LINKEDCONTROLLER' | translate"
+          [readonly]="true"
+        >
+        </naxt-chip-controller>
+      </div>
+      <div class="col-12 row-3">
+        <naxt-text-control
+          [label]="'CAST.ROLEINTHEACCIDENT.COMPONENTTYPE'"
+          [(value)]="row.componentType"
+          [readonly]="true"
+        ></naxt-text-control>
+      </div>
+      <div class="col-12 row-4">
+        <naxt-multi-line-text
+          [maxRows]="3"
+          [(value)]="row.description"
+          [label]="'CAST.ROLEINTHEACCIDENT.FLAWS' | translate"
+        ></naxt-multi-line-text>
+      </div>
+
+      <div class="col-12 row-5">
+        <naxt-multi-line-text
+          [maxRows]="3"
+          [(value)]="row.rule"
+          [label]="'CAST.ROLEINTHEACCIDENT.RULE' | translate"
+        ></naxt-multi-line-text>
+      </div>
+      <div class="col-12 row-6">
+        <naxt-multi-line-text
+          [maxRows]="3"
+          [(value)]="row.explanation"
+          [label]="'CAST.ROLEINTHEACCIDENT.BEHAVIOUR' | translate"
+        ></naxt-multi-line-text>
+      </div>
+      <div class="col-12 row-7">
+        <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+      </div>
+      <div class="col-12 row-8">
+        <naxt-question-control
+          (addEmit)="createRoleInTheAccidentQuestionLink($event)"
+          *ngIf="!!table.expandedRow && table.expandedRow?.tableId === row?.tableId"
+          [(value)]="textOfTextfield"
+          [add]="[row, 'RoleInTheAccident', row.id]"
+        ></naxt-question-control>
+      </div>
+    </div>
+  </ng-template>
+</ng-template>

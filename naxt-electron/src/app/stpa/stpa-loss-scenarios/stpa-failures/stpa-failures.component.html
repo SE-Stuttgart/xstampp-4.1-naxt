@@ -1,0 +1,21 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-dropdown-control
+        [label]="'STPA.LOSSSCENARIOS.CATEGORY.FAILURES.CONTROLLER' | translate"
+        [dropdownList]="dropDownList"
+        [(value)]="chosenController"
+        (valueChange)="onChosenControllerChange($event)"
+      ></naxt-dropdown-control>
+    </div>
+    <div class="col-2 row-1">
+      <naxt-multi-line-text
+        [maxRows]="6"
+        [(value)]="description"
+        (valueChange)="onChangeDescription($event)"
+        [label]="'STPA.DESCRIPTION' | translate"
+      >
+      </naxt-multi-line-text>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+@import '~style/table-grid.scss';
+
+.naxt-detail-grid {
+  @include naxt-detail-grid(1, 1, false);
+}
+
+.naxt-sub-detail-grid {
+  @include naxt-detail-grid(2, 5);
+}
+
+.naxt-sub-detail-grid-extended {
+  @include naxt-detail-grid(2, 6);
+}
+
+#test {
+  //display: flex;
+  padding-top: 7px;
+  padding-left: 7px;
+  //justify-content: space-around;
+}
+
+.before-field {
+  //width: 80px;
+  width: 100%;
+}
+
+.text-field {
+  //width: calc(100% - 80px);
+  width: 100%;
+}
+
+.left {
+  width: 150px;
+  padding-top: 4px;
+}
+
+.middle {
+  width: calc(100% - 180px);
+}
+
+#button-color {
+  color: dimgrey;
+}

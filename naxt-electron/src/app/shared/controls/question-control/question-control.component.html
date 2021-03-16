@@ -1,0 +1,40 @@
+<div class="width">
+  <mat-expansion-panel class="width100">
+    <mat-expansion-panel-header>
+      <mat-form-field class="marginTop">
+        <input
+          #input
+          type="text"
+          [formControl]="questionFormControl"
+          [placeholder]="labelQuestion"
+          (keydown)="$event.stopPropagation()"
+          (keydown.enter)="onChange(input, value)"
+          matInput
+          (click)="onFocus($event)"
+        />
+      </mat-form-field>
+      <button class="button" mat-button (click)="onChange(input, value)">
+        <mat-icon>add</mat-icon>
+      </button>
+      <!-- <button class="button" mat-button (click)="goToQuestionAndAnswerComponent()"><mat-icon>link</mat-icon></button> -->
+    </mat-expansion-panel-header>
+    <mat-nav-list class="scrollable">
+      <mat-progress-bar *ngIf="isLoading" mode="indeterminate" class="load"></mat-progress-bar>
+      <mat-list-item (click)="click(question)" *ngFor="let question of questionArray[0]" class="width100">
+        <div *ngIf="includesQuestionId(question)"><mat-icon class="green">link</mat-icon></div>
+        <div *ngIf="!includesQuestionId(question)"><mat-icon class="white">link</mat-icon></div>
+        <div class="width60">
+          <naxt-text-control [(value)]="question.name" [readonly]="true"></naxt-text-control>
+        </div>
+        <div class="width40">
+          <naxt-chip-controller
+            [readonly]="true"
+            [chipList]="question.componentChips"
+            (chipListChange)="updateChiplist(question, $event)"
+            class="chip"
+          ></naxt-chip-controller>
+        </div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-expansion-panel>
+</div>

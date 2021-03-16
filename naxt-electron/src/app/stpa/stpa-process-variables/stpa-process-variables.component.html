@@ -1,0 +1,161 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-table
+        #table
+        [rowData]="processVariableData"
+        [columnDefinitions]="columns"
+        [showStateColumn]="true"
+        [showDeleteColumn]="true"
+        [detailRowTemplate]="_subTemplate_"
+        [filterShowMenu]="true"
+        [menuMapList]="menuMapProcessVariable"
+        (menuMapEmit)="createProcessVariable($event)"
+        [parent]="['PLUSBUTTONPARENT.CONTROLLER' | translate, 'PLUSBUTTONPARENT.PROCESSMODEL' | translate]"
+      ></naxt-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #_subTemplate_ let-row="row">
+  <div [class.naxt-sub-detail-grid]="!showExtendedView" [class.naxt-sub-detail-grid-extended]="showExtendedView">
+    <div class="col-12 detail-heading">
+      <h4>{{ 'STPA.PROCESSVARIABLES.TITLETABLE' | translate }}</h4>
+      <button (click)="getHelp()" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+        <mat-icon
+          [matTooltip]="'LTL.HELP' | translate"
+          matTooltipPosition="after"
+          matTooltipShowDelay="500"
+          id="button-color"
+          >help_outline</mat-icon
+        >
+      </button>
+    </div>
+
+    <div class="col-1 row-1">
+      <naxt-text-control [(value)]="row.name" [label]="'STPA.NAME' | translate"></naxt-text-control>
+    </div>
+
+    <div class="col-12 row-2">
+      <div class="left">
+        <button *ngIf="!editMode; else editBlock2" mat-raised-button color="primary" (click)="editMode = true">
+          {{ 'LTL.EDIT' | translate }}
+        </button>
+        <div #tooltip="matTooltip" matTooltip="Doubleclick to edit" matTooltipPosition="below"></div>
+
+        <ng-template #editBlock2>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="editMode = false; parsedTerm = parseTerm(row?.currentVariableValue)"
+          >
+            {{ 'LTL.SAVE' | translate }}
+          </button>
+        </ng-template>
+      </div>
+      <div class="middle">
+        <ng-container *ngIf="!editMode; else editBlock">
+          <p
+            class="text-field"
+            (mouseenter)="tooltip.show(500)"
+            (mouseleave)="tooltip.hide()"
+            (dblclick)="editMode = true"
+          >
+            {{ parseTerm(row?.currentVariableValue) }}
+          </p>
+        </ng-container>
+
+        <ng-template #editBlock>
+          <naxt-multi-line-text
+            [maxRows]="7"
+            [label]="'STPA.PROCESSVARIABLES.VALUE' | translate"
+            [(value)]="row.currentVariableValue"
+            [editorConfigs]="getEditorConfig()"
+          ></naxt-multi-line-text>
+        </ng-template>
+      </div>
+    </div>
+
+    <!--    <div id="test" class="col-2 row -2">-->
+    <!--    </div>-->
+
+    <div class="col-1 row-3">
+      <naxt-chip-controller
+        [singleChip]="true"
+        [chipList]="row?.inputChips"
+        [label]="'STPA.PROCESSVARIABLES.LINKEDBOXINPUT' | translate"
+        (addChip)="createInputLink(row, $event)"
+        (removeChip)="removeInputLink(row, $event)"
+      ></naxt-chip-controller>
+    </div>
+
+    <div class="col-1 row-4">
+      <naxt-dropdown-control
+        [(value)]="row.variable_type"
+        [dropdownList]="[
+          { value: VariableType.Discrete, label: 'Discrete' },
+          { value: VariableType.Continuous, label: 'Continuous' }
+        ]"
+        [label]="'STPA.PROCESSVARIABLES.TYPE' | translate"
+      ></naxt-dropdown-control>
+      <!--      <naxt-button-group-->
+      <!--        [(value)]="row.variable_type"-->
+      <!--        [toggleOptions]="[VariableType.Discrete, VariableType.Continuous]"-->
+      <!--      ></naxt-button-group>-->
+    </div>
+
+    <div class="col-1 row-5">
+      <naxt-chip-controller
+        [singleChip]="false"
+        [chipList]="row?.processModelChips"
+        [label]="'STPA.PROCESSVARIABLES.LINKEDPM' | translate"
+        (addChip)="createProcessModelLink(row, $event)"
+        (removeChip)="removeProcessModelLink(row, $event)"
+      ></naxt-chip-controller>
+    </div>
+
+    <div class="col-2 row-1">
+      <naxt-multi-line-text
+        [maxRows]="3"
+        [(value)]="row.description"
+        [label]="'STPA.DESCRIPTION' | translate"
+      ></naxt-multi-line-text>
+    </div>
+
+    <div class="col-2 row-3">
+      <naxt-chip-controller
+        [singleChip]="true"
+        [chipList]="row?.responsibilityChips"
+        [label]="'STPA.PROCESSVARIABLES.LINKEDRESPONSIBILITY' | translate"
+        (addChip)="createResponsibilityLink(row, $event)"
+        (removeChip)="removeResponsibilityLink(row, $event)"
+      ></naxt-chip-controller>
+    </div>
+
+    <div class="col-2 row-4">
+      <naxt-chip-create
+        *ngIf="row.variable_type === VariableType.Discrete"
+        [(chipList)]="row.possibleVariableValues"
+        [label]="'STPA.PROCESSVARIABLES.VALUES' | translate"
+      ></naxt-chip-create>
+    </div>
+
+    <div class="col-2 row-5">
+      <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+    </div>
+
+    <div class="col-1 row-6" *ngIf="showExtendedView">
+      <naxt-text-control
+        [(value)]="row.nuSMVName"
+        [label]="'STPA.PROCESSVARIABLES.NUSMV' | translate"
+      ></naxt-text-control>
+    </div>
+
+    <div class="col-2 row-6" *ngIf="showExtendedView">
+      <naxt-text-control
+        [(value)]="row.spinName"
+        [label]="'STPA.PROCESSVARIABLES.SPIN' | translate"
+      ></naxt-text-control>
+    </div>
+  </div>
+</ng-template>

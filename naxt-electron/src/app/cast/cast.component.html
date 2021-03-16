@@ -1,0 +1,87 @@
+<mat-sidenav-container class="naxt-nav">
+  <mat-sidenav class="naxt-sidenav" mode="side" [fixedInViewport]="false" opened #sidenav>
+    <p>CAST-Project</p>
+    <mat-nav-list>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/questions-and-answers'">
+        {{ 'CAST.QUESTIONANDANSWER.TITLE' | translate }}
+      </a>
+      <div class="separator"></div>
+      <p>Step 1</p>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/overview'">
+        {{ 'CAST.OVERVIEW.TITLE' | translate }}
+      </a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/accident-description'">{{
+        'CAST.ACCIDENTDESCRIPTION.TITLE' | translate
+      }}</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/hazards'">{{
+        'CAST.HAZARDS.TITLE' | translate
+      }}</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/constraints'">{{
+        'CAST.CONSTRAINTS.TITLE' | translate
+      }}</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/events'">{{
+        'CAST.EVENTS.TITLE' | translate
+      }}</a>
+
+      <div class="separator"></div>
+      <p>Step 2</p>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/control-structure'">{{
+        'CAST.CONTROLSTRUCTURE.TITLE' | translate
+      }}</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/system-components'">{{
+        'CAST.SYSTEMCOMPONENTS.TITLE' | translate
+      }}</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/information-flow'">{{
+        'CAST.INFORMATIONFLOW.TITLE' | translate
+      }}</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/responsibilities'">{{
+        'CAST.RESPONSIBILITIES.TITLE' | translate
+      }}</a>
+
+      <div class="separator"></div>
+      <p>Step 3</p>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/role-in-the-accident'">{{
+        'CAST.ROLEINTHEACCIDENT.TITLE' | translate
+      }}</a>
+
+      <div class="separator"></div>
+      <p>Step 4</p>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/communication-and-coordination'">{{
+        'CAST.COMMUNICATIONCOORDINATION.TITLE' | translate
+      }}</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/safety-information-system'">{{
+        'CAST.SAFETYINFORMATIONSYSTEM.TITLE' | translate
+      }}</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/safety-managment-system'">{{
+        'CAST.SAFETYMANAGEMENTSYSTEM.TITLE' | translate
+      }}</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/safety-culture'">{{
+        'CAST.SAFETYCULTURE.TITLE' | translate
+      }}</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/changes-and-dynamics-over-time'">{{
+        'CAST.CHANGESANDDYNAMICSOVERTIME.TITLE' | translate
+      }}</a>
+      <a
+        mat-list-item
+        routerLinkActive="active"
+        [routerLink]="rootPath + '/internal-and-external-economic-and-related-factors'"
+        >{{ 'CAST.INTERNALANDEXTERNAL.TITLE' | translate }}</a
+      >
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/others'">{{
+        'CAST.OTHERS.TITLE' | translate
+      }}</a>
+
+      <div class="separator"></div>
+      <p>Step 5</p>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/recommondations'">{{
+        'CAST.RECOMMENDATIONS.TITLE' | translate
+      }}</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="rootPath + '/sub-recommondations'">{{
+        'CAST.SUBRECOMMENDATIONS.TITLE' | translate
+      }}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="naxt-container">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

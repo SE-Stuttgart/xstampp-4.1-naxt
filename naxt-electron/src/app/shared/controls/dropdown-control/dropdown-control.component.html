@@ -1,0 +1,17 @@
+<div class="controller-wrapper">
+  <mat-form-field>
+    <mat-label>{{ label }}</mat-label>
+    <mat-select [(ngModel)]="value" (ngModelChange)="onChange($event)" class="content">
+      <ng-container *ngIf="!stringList; else elseBlock">
+        <mat-option class="option" *ngFor="let value of dropdownList" [value]="value.value">
+          {{ value.label }}
+        </mat-option>
+      </ng-container>
+      <ng-template #elseBlock>
+        <mat-option class="option" *ngFor="let value of stringList" [value]="value">
+          {{ value }}
+        </mat-option></ng-template
+      >
+    </mat-select>
+  </mat-form-field>
+</div>

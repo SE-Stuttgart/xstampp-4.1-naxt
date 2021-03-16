@@ -1,0 +1,54 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-table
+        #table
+        [rowData]="controllerConstraintData"
+        [columnDefinitions]="columns"
+        [showStateColumn]="true"
+        [detailRowTemplate]="_subTemplate_"
+        [hideAdd]="true"
+        [deleteObjects]="['STPA.IMPLEMENTATIONCONSTRAINTS.TITLE' | translate]"
+      ></naxt-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #_subTemplate_ let-row="row">
+  <div class="naxt-sub-detail-grid">
+    <div class="col-12 detail-heading">
+      <h4>{{ 'STPA.CONTROLLERCONSTRAINTS.TITLETABLE' | translate }}</h4>
+    </div>
+
+    <div class="col-1 row-1">
+      <naxt-text-control [(value)]="row.name" [label]="'STPA.NAME' | translate"></naxt-text-control>
+    </div>
+
+    <div class="col-1 row-2">
+      <naxt-chip-controller
+        [singleChip]="true"
+        [readonly]="true"
+        [chipList]="row?.unsafeControlActionChips"
+        [label]="'STPA.CONTROLLERCONSTRAINTS.LINKEDUCA' | translate"
+      ></naxt-chip-controller>
+    </div>
+    <div class="col-2 row-1">
+      <naxt-text-control
+        [(value)]="row.unsafeControlActionName"
+        [readonly]="true"
+        [label]="'STPA.CONTROLLERCONSTRAINTS.UCANAME' | translate"
+      ></naxt-text-control>
+    </div>
+    <div class="col-2 row-2">
+      <naxt-multi-line-text
+        [maxRows]="8"
+        [(value)]="row.unsafeControlActionDescription"
+        [readonlyTextArea]="true"
+        [label]="'STPA.CONTROLLERCONSTRAINTS.DESCRIPTIONUCA' | translate"
+      ></naxt-multi-line-text>
+    </div>
+    <div class="col-2 row-4">
+      <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+    </div>
+  </div>
+</ng-template>

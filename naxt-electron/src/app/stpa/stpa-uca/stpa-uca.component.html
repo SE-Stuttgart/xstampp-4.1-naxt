@@ -1,0 +1,88 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-table
+        #table
+        [rowData]="ucaData"
+        [columnDefinitions]="columns"
+        [showStateColumn]="true"
+        [showDeleteColumn]="true"
+        [detailRowTemplate]="_subTemplate_"
+        [filterShowMenu]="true"
+        [menuList]="menuList"
+        (menuEmit)="createUnsafeControlAction($event)"
+        [parent]="['PLUSBUTTONPARENT.CONTROLACTION' | translate]"
+        [deleteObjects]="[
+          'STPA.LOSSSCENARIOS.TITLE' | translate,
+          'STPA.CONTROLLERCONSTRAINTS.TITLE' | translate,
+          'STPA.IMPEMENTATIONCONSTRAINTS.TITLE' | translate
+        ]"
+      ></naxt-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #_subTemplate_ let-row="row">
+  <div class="naxt-sub-detail-grid">
+    <div class="col-12 detail-heading">
+      <h4>{{ 'STPA.UCA.TITLETABLE' | translate }}</h4>
+    </div>
+
+    <div class="col-1 row-1">
+      <naxt-text-control [(value)]="row.name" [label]="'STPA.NAME' | translate"></naxt-text-control>
+    </div>
+
+    <div class="col-1 row-2">
+      <naxt-chip-controller
+        [singleChip]="true"
+        [readonly]="true"
+        [chipList]="row?.controlActionChips"
+        [label]="'STPA.UCA.LINKEDCONTROLACTION' | translate"
+      ></naxt-chip-controller>
+    </div>
+
+    <div class="col-1 row-3">
+      <naxt-chip-controller
+        [singleChip]="false"
+        [chipList]="row?.hazardChips"
+        [label]="'STPA.UCA.LINKEDHAZARD' | translate"
+        (addChip)="addHazardLink(row, $event)"
+        (removeChip)="removeHazardLink(row, $event)"
+      ></naxt-chip-controller>
+    </div>
+
+    <div class="col-1 row-4">
+      <naxt-chip-controller
+        [singleChip]="false"
+        [chipList]="row?.subHazardChips"
+        [label]="'STPA.UCA.LINKEDSUBHAZARD' | translate"
+        (addChip)="addSubHazardLink(row, $event)"
+        (removeChip)="removeSubHazardLink(row, $event)"
+      ></naxt-chip-controller>
+    </div>
+
+    <div class="col-2 row-1">
+      <naxt-dropdown-control
+        [label]="'STPA.UCA.DROPDOWNTITLE' | translate"
+        [dropdownList]="dropdownList"
+        [(value)]="row.category"
+      >
+      </naxt-dropdown-control>
+      <!-- <naxt-text-control
+        [value]="row?.category"
+        [label]="'STPA.UCA.DROPDOWNTITLE' | translate"
+        [readonly]="true"
+      ></naxt-text-control> -->
+    </div>
+    <div class="col-2 row-2">
+      <naxt-multi-line-text
+        [maxRows]="7"
+        [(value)]="row.description"
+        [label]="'STPA.DESCRIPTION' | translate"
+      ></naxt-multi-line-text>
+    </div>
+    <div class="col-2 row-4">
+      <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+    </div>
+  </div>
+</ng-template>

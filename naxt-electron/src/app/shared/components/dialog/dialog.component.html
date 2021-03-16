@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>{{ data?.headline }}</h1>
+<mat-dialog-content class="dialog-content">
+  <p [innerHTML]="data?.text"></p>
+  <naxt-text-control
+    *ngIf="!!data?.inputLabel"
+    [label]="data?.inputLabel"
+    [required]="true"
+    [(value)]="extra"
+  ></naxt-text-control>
+  <ng-container *ngIf="!!data?.printObjects">
+    <p *ngFor="let obj of data?.printObjects">
+      {{ obj }}
+    </p>
+  </ng-container>
+  <ng-container *ngIf="!!data?.labelDirectoryPathField">
+    <naxt-text-control
+      *ngIf="!!data?.inputLabel"
+      [label]="data?.inputLabel"
+      [required]="true"
+      [(value)]="path"
+      [readonly]="true"
+    ></naxt-text-control>
+    <button mat-button (click)="findDirectory()">durchsuchen</button>
+  </ng-container>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button class="mat-raised-button" (click)="dismiss()">{{ dissmissText }}</button>
+  <button mat-button class="mat-raised-button mat-primary" (click)="accept()" cdkFocusInitial>{{ acceptText }}</button>
+</mat-dialog-actions>

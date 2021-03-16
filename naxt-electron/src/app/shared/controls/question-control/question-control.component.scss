@@ -1,0 +1,66 @@
+:host {
+  flex: 1 0 100%;
+}
+.button {
+  width: 4% !important;
+  margin-right: 20px !important;
+}
+.width {
+  width: 100%;
+  margin-top: 10px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.scrollable {
+  overflow-y: auto;
+  height: auto;
+  max-height: 210px;
+  width: 100%;
+}
+.width100 {
+  width: 100%;
+  //margin-right: 10px;
+  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  height: fit-content;
+
+  .width10 {
+    width: 10%;
+    background-color: lime;
+  }
+  .width60 {
+    width: 50%;
+    margin-top: 5px;
+  }
+  .width40 {
+    margin-left: 5px;
+    width: 50%;
+  }
+}
+
+.green {
+  margin-top: 30px;
+  margin-right: 15px;
+  width: 5%;
+  color: green;
+}
+.white {
+  margin-top: 30px;
+  margin-right: 15px;
+  width: 5%;
+  color: white;
+}
+.marginTop {
+  margin-top: 10px;
+}
+
+.load {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  //width: 50%;
+  //height: 5px
+}

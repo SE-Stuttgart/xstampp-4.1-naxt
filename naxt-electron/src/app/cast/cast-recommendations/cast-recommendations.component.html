@@ -1,0 +1,56 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-table
+        #table
+        [rowData]="recommendationsData"
+        [columnDefinitions]="columns"
+        [showStateColumn]="true"
+        [showDeleteColumn]="true"
+        [detailRowTemplate]="_subTemplate_"
+        (addEmit)="createRecommendations()"
+        [deleteObjects]="['CAST.SUBRECOMMENDATIONS.TITLE' | translate]"
+      ></naxt-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #_subTemplate_ let-row="row">
+  <div class="naxt-sub-detail-grid">
+    <div class="col-12 detail-heading">
+      <h4>{{ 'CAST.RECOMMENDATIONS.TITLETABLE' | translate }}</h4>
+    </div>
+
+    <div class="col-1 row-1">
+      <naxt-text-control [(value)]="row.name" [label]="'CAST.NAME' | translate"></naxt-text-control>
+    </div>
+    <div class="col-1 row-2">
+      <naxt-text-control
+        [(value)]="row.personInCharge"
+        [label]="'CAST.RECOMMENDATIONS.DEPARTMENTNAME' | translate"
+      ></naxt-text-control>
+    </div>
+
+    <div class="col-1 row-3">
+      <naxt-chip-controller
+        [singleChip]="false"
+        [chipList]="row?.linkedSubRecommendations"
+        [label]="'CAST.RECOMMENDATIONS.LINKEDSUBRECOMMENDATIONS' | translate"
+        [readonly]="true"
+      ></naxt-chip-controller>
+    </div>
+    <div class="col-2 row-1">
+      <naxt-multi-line-text
+        [maxRows]="11"
+        [(value)]="row.description"
+        [label]="'CAST.DESCRIPTION' | translate"
+      ></naxt-multi-line-text>
+    </div>
+    <div class="col-1 row-4">
+      <naxt-recommondations-button-group [(value)]="row.duration"></naxt-recommondations-button-group>
+    </div>
+    <div class="col-2 row-4">
+      <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+    </div>
+  </div>
+</ng-template>

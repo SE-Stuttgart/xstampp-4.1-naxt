@@ -1,0 +1,101 @@
+<mat-sidenav-container class="naxt-nav">
+  <mat-sidenav class="naxt-sidenav" mode="side" [fixedInViewport]="false" opened #sidenav>
+    <p>STPA-Project</p>
+    <mat-nav-list>
+      <div class="separator"></div>
+      <p>Step 1</p>
+      <a mat-list-item [class.active]="isActive('overview')" [routerLink]="rootPath + '/overview'">
+        {{ 'STPA.OVERVIEW.TITLE' | translate }}
+      </a>
+      <a mat-list-item [class.active]="isActive('losses')" [routerLink]="rootPath + '/losses'">{{
+        'STPA.LOSSES.TITLE' | translate
+      }}</a>
+      <a
+        mat-list-item
+        [class.active]="isActive('system-level-hazards')"
+        [routerLink]="rootPath + '/system-level-hazards'"
+        >{{ 'STPA.SYSTEMLEVELHAZARDS.TITLE' | translate }}</a
+      >
+      <a
+        mat-list-item
+        [class.active]="isActive('system-level-safety-constraint')"
+        [routerLink]="rootPath + '/system-level-safety-constraint'"
+        >{{ 'STPA.SYSTEMLEVELSAFETYCONSTRAINTS.TITLE' | translate }}</a
+      >
+      <a mat-list-item [class.active]="isActive('sub-hazards')" [routerLink]="rootPath + '/sub-hazards'">{{
+        'STPA.SUBHAZARDS.TITLE' | translate
+      }}</a>
+      <a
+        mat-list-item
+        [class.active]="isActive('sub-safety-constraint')"
+        [routerLink]="rootPath + '/sub-safety-constraint'"
+        >{{ 'STPA.SUBSAFETYCONSTRAINTS.TITLE' | translate }}</a
+      >
+      <div class="separator"></div>
+      <p>Step 2</p>
+      <a mat-list-item [class.active]="isActive('control-structure')" [routerLink]="rootPath + '/control-structure'">{{
+        'STPA.CONTROLSTRUCTURE.TITLE' | translate
+      }}</a>
+      <a mat-list-item [class.active]="isActive('system-components')" [routerLink]="rootPath + '/system-components'">{{
+        'STPA.SYSTEMCOMPONENTS.TITLE' | translate
+      }}</a>
+      <a mat-list-item [class.active]="isActive('information-flow')" [routerLink]="rootPath + '/information-flow'">{{
+        'STPA.INFORMATIONFLOW.TITLE' | translate
+      }}</a>
+      <a mat-list-item [class.active]="isActive('responsibilities')" [routerLink]="rootPath + '/responsibilities'">{{
+        'STPA.RESPONSIBILITIES.TITLE' | translate
+      }}</a>
+
+      <div class="separator"></div>
+      <p>Step 3</p>
+      <a mat-list-item [class.active]="isActive('uca')" [routerLink]="rootPath + '/uca'">{{
+        'STPA.UCA.TITLE' | translate
+      }}</a>
+      <a
+        mat-list-item
+        [class.active]="isActive('controller-constraint')"
+        [routerLink]="rootPath + '/controller-constraint'"
+        >{{ 'STPA.CONTROLLERCONSTRAINTS.TITLE' | translate }}</a
+      >
+
+      <div class="separator"></div>
+      <p>Step 4</p>
+      <a
+        mat-list-item
+        [class.active]="isActive('control-structure1')"
+        [routerLink]="rootPath + '/control-structure1'"
+        >{{ 'STPA.CONTROLSTRUCTURE.TITLE1' | translate }}</a
+      >
+      <a mat-list-item [class.active]="isActive('process-models')" [routerLink]="rootPath + '/process-models'">{{
+        'STPA.PROCESSMODELS.TITLE' | translate
+      }}</a>
+      <a mat-list-item [class.active]="isActive('process-variables')" [routerLink]="rootPath + '/process-variables'">{{
+        'STPA.PROCESSVARIABLES.TITLE' | translate
+      }}</a>
+      <a mat-list-item [class.active]="isActive('uca-refinement')" [routerLink]="rootPath + '/uca-refinement'">{{
+        'STPA.UCAREFINEMENT.TITLE' | translate
+      }}</a>
+      <a
+        mat-list-item
+        [class.active]="isActive('control-algorithms')"
+        [routerLink]="rootPath + '/control-algorithms'"
+        >{{ 'STPA.CONTROLALGORITHMS.TITLE' | translate }}</a
+      >
+      <a mat-list-item [class.active]="isActive('conversions')" [routerLink]="rootPath + '/conversions'">{{
+        'STPA.CONVERSIONS.TITLE' | translate
+      }}</a>
+      <a mat-list-item [class.active]="isActive('loss-scenarios')" [routerLink]="rootPath + '/loss-scenarios'">{{
+        'STPA.LOSSSCENARIOS.TITLE' | translate
+      }}</a>
+      <a
+        mat-list-item
+        [class.active]="isActive('implementation-constraints')"
+        [routerLink]="rootPath + '/implementation-constraints'"
+        >{{ 'STPA.IMPEMENTATIONCONSTRAINTS.TITLE' | translate }}</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="naxt-container">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

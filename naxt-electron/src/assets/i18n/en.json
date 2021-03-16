@@ -1,0 +1,410 @@
+{
+  "LTL": {
+    "ERROR": "ERROR - cyclic term detected!",
+    "DELETED": "WARNING - Variable not found!",
+    "STATEDEL": "WARNING - State not found!",
+    "UCADEL": "WARNING - Uca not found!",
+    "EDIT": "edit term",
+    "SAVE": "save term",
+    "HELP": "help"
+  },
+  "TABLE": {
+    "DIALOG": {
+      "HEADING": "delete dialog",
+      "ACCEPT": "delete",
+      "DISMISS": "dismiss",
+      "TEXT1": "do you want to delete ",
+      "TEXT2": " ?",
+      "TEXT3": "the following sub-components will also be deleted:"
+    }
+  },
+  "PAGES": {
+    "HOME": {
+      "TITLE": "NAXT Editor",
+      "CAST":"New CAST Project",
+      "STPA":"New STPA Project",
+      "OPEN":"Open Project...",
+      "SUBTITLE": "Systems Thinking Applied to Safety",
+      "START": "Start",
+      "RECENT": "Recent",
+      "HELP": "Help",
+      "STPAH": "Stpa Handbook",
+      "CASTH": "Cast Handbook",
+      "GITHUB": "GitHub Repository",
+      "H1": "Welcome",
+      "TEXT11": "NAXT (<b>N</b>ot <b>A</b>nother <b>X</b>STAMPP <b>T</b>ool) is an open-source desktop tool for safety\n              engineering designed specially to serve the widespread adoption and use of STAMP methodologies (STPA and\n              CAST) in different areas.",
+      "TEXT12": "It is one several STAMP tools developed by the\n              <a href=\"https://www.iste.uni-stuttgart.de/ese/\" target=\"_blank\">Institute of Software Engineering | University of Stuttgart</a\n              >.",
+      "TEXT13": "NAXT is developed as an offline desktop version of the\n              <a href=\"https://web.xstampp.de/login\" target=\"_blank\">XSTAMPP4</a> (e<b>X</b>tensible <b>STAMP</b>\n              <b>P</b>latform) web application (a descendant of the\n              <a href=\"https://github.com/SE-Stuttgart/XSTAMPP\" target=\"_blank\">XSTAMPP</a> eclipse plugin).\n            ",
+      "BACK": "back",
+      "NEXT": "next",
+      "H2": "The challenge",
+      "H22": "What is STAMP?",
+      "TEXT21": "The increasingly complex systems we are building today enable us to accomplish tasks that were previously\n              difficult or impossible. At the same time, they have changed the nature of accidents and increased the\n              potential to harm not only life today but also future generations.",
+      "TEXT22": "Traditional system safety approaches, which started in the missile defense systems of the 1950s, are being\n              challenged by the introduction of new technology and the increasing complexity of the systems we are\n              attempting to build. Software is changing the causes of accidents and the humans operating these systems\n              have a much more difficult job than simply following predefined procedures. We can no longer effectively\n              separate engineering design from human factors and from the social and organizational system in which our\n              systems are designed and operated.",
+      "TEXT23": "To tackle these challenges, we need to apply systems thinking and take a systems approach to safety.",
+      "TEXT24": "STAMP (System-Theoretic Accident Model and Processes) is the name of the new accident causality model\n              based on systems theory. It expands traditional models that focus on individual component failures or\n              chains of directly-related failure events to include more complex processes and unsafe interactions among\n              system components. Safety is treated as a dynamic control problem rather than a “prevent failures”\n              problem. The STAMP model includes traditional component failures but also considers design flaws,\n              incomplete or inadequate requirements, dysfunctional interactions among subsystems or components (all of\n              which may be operating exactly as specified), human interactions, and other causes of accidents and\n              incidents. With STAMP, the emphasis changes from simply preventing failures to enforcing constraints on\n              system behavior and interactions.",
+      "TEXT25": "Some advantages of using STAMP are that:",
+      "TEXT26": "It works on very complex systems because it works top-down rather than bottom up.",
+      "TEXT27": "It works extremely well for software-intensive systems (like autonomous self-driving cars and UAS) and\n                human interactions",
+      "TEXT28": "It also applies to management, organizations, safety culture, etc. without having to treat them\n                differently or separately.",
+      "TEXT29": "It allows creating more powerful tools, such as STPA (hazard analysis), safety-guided design, CAST\n                (analyzing previous accidents), identification and management of leading indicators of increasing risk,\n                organizational risk analysis, etc.",
+      "SOURCE": "source",
+      "H3": "Quick Tool Intro",
+      "TEXT31": "NAXT aims to guide an analyst in a top-down approach through a STAMP analysis process. The analyst\n                starts by identifying and focusing process-relevant subjects, which are mostly represented in tables.",
+      "TEXT32": "Such table entries have an color-coding representing it’s workflow progress (TODO, DOING DONE), an\n                unique identifier, links represented by “Chips” connecting it to entries in other tables and additional\n                information finalizing the focused subject.",
+      "TEXT33": "Table entries can be created with no precondition by a blue plus button or they need previous created\n                entities as parents, indicated by a red plus button.",
+      "TEXT34": "Chips represent links between table entries, representing three different link types. A final link with\n                now possibility to remove the link. A single link connection, only allowing one Chip, or a multi-link\n                connection as shown above. Chip provide additional information about the linked entity if hoverd with\n                the mouse.",
+      "ADD": "add"
+    }
+  },
+  "PLUSBUTTONPARENT": {
+    "RECOMMENDATION": "select recommendation",
+    "HAZARD": "select hazard",
+    "CONSTRAINT": "select safety-contstraint",
+    "SUBHAZARD": "select sub-hazard",
+    "CONTROLLER": "select controller",
+    "CONTROLACTION": "select control-action",
+    "PROCESSMODEL": "select processmodel",
+    "UCA": "select UCA",
+    "LOSSSCENARIO": "select loss-scenario"
+  },
+  "STRINGS": {
+    "CHANGE_LAN": "Change language!",
+    "FILTER": {
+      "AND": "AND",
+      "OR": "OR",
+      "NOT": "NOT",
+      "PLACEHOLDER": "Search"
+    }
+  },
+  "DIALOG": {
+    "DISSMISS": "Cancel",
+    "ACCEPT": "OK",
+    "ERROR": "Input is empty!",
+    "FATAL_ERROR": "Dialog error!"
+  },
+
+  "CAST": {
+    "NAME": "name",
+    "DESCRIPTION": "description",
+    "MAXLENGTHTEXT": "max length 128 characters",
+    "LINKEDDOCUMENTS": "linked documents",
+    "LINKEDDOCUMENT": "linked document",
+    "BROWSE": "browse",
+    "QUESTION":"add question",
+    "INCORRECTURL":"URL is invalide",
+    "INCORRECTPATH":"Path is invalide",
+    "PATHLABEL":"select path",
+    "URLLABEL":"enter url",
+    "URL":"url",
+    "PATH":"path",
+    "QUESTIONANDANSWER": {
+      "TITLE": "questions & answers",
+      "QUESTION": "question",
+      "ANSWER": "answer",
+      "COMPONENT": "linked component"
+    },
+
+    "OVERVIEW": {
+      "TITLE": "overview"
+    },
+    "ACCIDENTDESCRIPTION": {
+      "TITLE": "accident description"
+    },
+    "HAZARDS": {
+      "TITLE": "hazards",
+      "TITLETABLE": "hazard",
+      "NAME": "hazard-name",
+      "LINKEDHAZARD": "linked hazards",
+      "LINKEDCONSTRAINT": "linked constraints"
+    },
+    "CONSTRAINTS": {
+      "TITLE": "constraints",
+      "NAME": "constraint-name",
+      "TITLETABLE": "constraint",
+      "LINKEDHAZARD": "linked hazards"
+    },
+    "EVENTS": {
+      "TITLE": "events",
+      "NAME": "event-name",
+      "TITLETABLE": "event"
+    },
+    "CONTROLSTRUCTURE": {
+      "TITLE": "control structure"
+    },
+    "SYSTEMCOMPONENTS": {
+      "TITLE": "system components",
+      "NAME": "system-component-name",
+      "TYPE": "component-type",
+      "PROCESSVARIABLE": "add process-variable",
+      "TITLETABLE": "system-component"
+    },
+    "INFORMATIONFLOW": {
+      "TITLE": "information flows",
+      "NAME": "information-flow-name",
+      "TITLETABLE": "information-flow",
+      "TYPE": "information-flow-type"
+    },
+    "RESPONSIBILITIES": {
+      "TITLE": "responsibilities",
+      "NAME": "responsibility-name",
+      "TITLETABLE": "responsibility",
+      "LINKEDCONSTRAINT": "linked constraints",
+      "LINKEDCONTROLLER": "linked controller"
+    },
+    "ROLEINTHEACCIDENT": {
+      "TITLE": "roles in the accident",
+      "NAME": "role-name",
+      "TITLETABLE": "role",
+      "RULE": "role",
+      "FLAWS": "mental model flaws or process model flaws",
+      "BEHAVIOUR": "Explanation of the behavior",
+      "COMPONENTTYPE": "component-type",
+      "CURRRENTVALUEPV": "current values in the accident",
+      "MISTAKESPV": "mistakes in the process variable",
+      "LINKEDCONTROLLER": "linked component of the control structure "
+    },
+
+    "COMMUNICATIONCOORDINATION": {
+      "TITLE": "communication and coordination",
+      "NAME": "communication-and-coordination-name",
+      "LINKEDCONTROLLER": "connection between",
+      "LINKEDCONTROLLER2": " and "
+    },
+    "SAFETYINFORMATIONSYSTEM": {
+      "TITLE": "safety information systems",
+      "NAME": "safety-information-system-name"
+    },
+    "SAFETYMANAGEMENTSYSTEM": {
+      "TITLE": "safety management systems",
+      "NAME": "safety-management-system-name"
+    },
+    "SAFETYCULTURE": {
+      "TITLE": "safety cultures",
+      "NAME": "safety-culture-name"
+    },
+    "CHANGESANDDYNAMICSOVERTIME": {
+      "TITLE": "changes and dynamics over time",
+      "NAME": "changes-and-dynamics-over-time-name"
+    },
+    "INTERNALANDEXTERNAL": {
+      "TITLE": "internal and external economics and related factors",
+      "NAME": "internal-and-external-economic-and-related-factors-name"
+    },
+    "OTHERS": {
+      "TITLE": "other factors",
+      "NAME": "others-name"
+    },
+    "RECOMMENDATIONS": {
+      "TITLE": "recommendations",
+      "NAME": "recommendation-name",
+      "TITLETABLE": "recommendation",
+      "DEPARTMENTNAME": "department / person in charge",
+      "LINKEDSUBRECOMMENDATIONS": "linked sub-recommendations"
+    },
+    "SUBRECOMMENDATIONS": {
+      "TITLE": "sub recommendations",
+      "NAME": "sub-recommendation-name",
+      "TITLETABLE": "sub-recommendation",
+      "DEPARTMENTNAME": "department / person in charge",
+      "LINKEDSUBRECOMMENDATIONS": "linked recommendation"
+    }
+  },
+
+  "STPA": {
+    "NAME": "name",
+    "DESCRIPTION": "description",
+    "MAXLENGTHTEXT": "max length 128 characters",
+    "OVERVIEW": {
+      "TITLE": "overview"
+    },
+    "LOSSES": {
+      "TITLE": "losses",
+      "TITLETABLE": "loss",
+      "NAME": "loss-name",
+      "LINKEDHAZARD": "linked hazards"
+    },
+    "SYSTEMLEVELHAZARDS": {
+      "TITLE": "system level hazards",
+      "TITLETABLE": "hazard",
+      "NAME": "hazard-name",
+      "LINKEDLOSSES": "linked losses",
+      "LINKEDSAFETYCONSTRAINT": "linked safety-constraints",
+      "LINKEDUCA": "linked unsafe-control-actions",
+      "SUBHAZARD": "linked sub-hazards"
+    },
+    "SYSTEMLEVELSAFETYCONSTRAINTS": {
+      "TITLE": "system level safety constraints",
+      "NAME": "safety-constraint-name",
+      "TITLETABLE": "safety constraint",
+      "LINKEDHAZARD": "linked hazards",
+      "LINKEDSUBSAFETYCONSTRAINTS": "linked sub-safety-constraints"
+    },
+    "SUBHAZARDS": {
+      "TITLE": "sub hazards",
+      "NAME": "sub-hazard-name",
+      "TITLETABLE": "sub-hazard",
+      "TITLESC": "sub-safety-constraint",
+      "NAMESC": "sub-safety-constraint-name",
+      "TITLETABLESC": "sub-safety-constraint",
+      "LINKEDHAZARD": "linked hazard",
+      "LINKEDSUBSAFETYCONSTRAINTS": "linked sub-safety-constraints",
+      "LINKEDUCA": "linked unsafe-control-actions"
+    },
+    "SUBSAFETYCONSTRAINTS": {
+      "TITLE": "sub safety constraints",
+      "NAME": "sub-safety-constraint-name",
+      "TITLETABLE": "sub-safety-constraint",
+      "LINKEDSAFETYCONSTRAINT": "linked safety-constraint",
+      "LINKEDSUBHAZARD": "linked sub-hazard"
+    },
+    "CONTROLSTRUCTURE": {
+      "TITLE": "control structure",
+      "TITLE1": "detailed control structure"
+    },
+    "SYSTEMCOMPONENTS": {
+      "TITLE": "system components",
+      "NAME": "system-component-name",
+      "TITLETABLE": "system-component",
+      "TYPE": "component-type"
+    },
+    "INFORMATIONFLOW": {
+      "TITLE": "information flows",
+      "NAME": "information-flow-name",
+      "TITLETABLE": "information-flow",
+      "TYPE": "information-flow-type"
+    },
+    "RESPONSIBILITIES": {
+      "TITLE": "responsibilities",
+      "NAME": "responsibility-name",
+      "TITLETABLE": "responsibility",
+      "LINKEDCONSTRAINT": "linked constraints",
+      "LINKEDCONTROLLER": "linked controller",
+      "LINKEDSUBCONSTRAINT": "linked sub-safety-constraint"
+    },
+    "UCA": {
+      "TITLE": "unsafe control actions",
+      "NAME": "unsafe-control-action-name",
+      "TITLETABLE": "unsafe-control-action",
+      "DROPDOWNTITLE": "uca categories",
+      "LINKEDHAZARD": "linked hazard",
+      "LINKEDSUBHAZARD": "linked sub-hazard",
+      "LINKEDCONTROLACTION": "linked control-action",
+      "LINKEDSUBCONSTRAINT": "linked sub-safety-constraint",
+      "DELETION": " if componenten-type = controlAction - UCA, controller constraint, loss scenario, implementation constraints"
+    },
+    "CONTROLLERCONSTRAINTS": {
+      "TITLE": "controller constraints",
+      "NAME": "controller-constraint-name",
+      "TITLETABLE": "controller-constraint",
+      "LINKEDCONTROLLACTION": "linked control action",
+      "UCANAME": "unsafe-control-action-name",
+      "DESCRIPTIONUCA": " description unsafe-control-action",
+      "LINKEDUCA": "linked unsafe-control-action"
+    },
+    "PROCESSMODELS": {
+      "TITLE": "process models",
+      "NAME": "process-model-name",
+      "TITLETABLE": "process-model",
+      "LINKEDCONTROLLER": "linked controller"
+    },
+    "PROCESSVARIABLES": {
+      "TITLE": "process variables",
+      "NAME": "process-variable-name",
+      "NUSMV": "name for NuSMV",
+      "SPIN": "name for Promela",
+      "TITLETABLE": "process-variable",
+      "LINKEDPM": "linked process-models",
+      "LINKEDBOXINPUT": "linked box-input",
+      "LINKEDRESPONSIBILITY": "linked responsibility",
+      "VALUE": "process-variable value",
+      "VALUES": "possible values",
+      "TYPE": "process-variable type",
+      "STATES": "process-variable states"
+    },
+    "UCAREFINEMENT": {
+      "TITLE": "uca refinements",
+      "NAME": "uca-refinement-name",
+      "TITLETABLE": "uca-refinement",
+      "TERM": "ltl-term",
+      "HELP": "Help",
+      "HELPTITLE": "Help",
+      "HELPBODY": "You can switch between NuSMV and SPIN in the settings menu.<br><br> These symbols will trigger the autocomplete:<br> @ - list of all variables<br> # - list of the enum-states of the variables<br> $ - list of the values / equivalence classes of the variables<br><br>These rules apply to NuSMV and SPIN: <br> <br> && / || logical and / or in NuSMV and SPIN<br> == tests vor equality<br> % the modulo operator <br> <br> Furthermore, the other operators of the input languages can be used in the different modes.",
+      "HELPBODYUCA": "You can switch between NuSMV and SPIN in the settings menu.<br><br> These symbols will trigger the autocomplete:<br> § - list of all uca's<br> @ - list of all variables<br> # - list of the enum-states of the variables<br> $ - list of the values / equivalence classes of the variables<br><br>These rules apply to NuSMV and SPIN: <br> <br> && / || logical and / or in NuSMV and SPIN<br> == tests vor equality<br> % the modulo operator <br> <br> Furthermore, the other operators of the input languages can be used in the different modes."
+    },
+    "CONTROLALGORITHMS": {
+      "TITLE": "control algorithms",
+      "NAME": "control-algorithms-name",
+      "TITLETABLE": "control-algorithm",
+      "LINKEDCONTROLLACTION": "linked control-action",
+      "RULE": "rule",
+      "DROPDOWNTITLENAME": "controller",
+      "DROPDOWNTITLE": "please choose a controller",
+      "LINKEDCONTROLLER": "linked controller",
+      "DELETION": "if component-type = controller - Control Algorithm"
+    },
+    "CONVERSIONS": {
+      "TITLE": "conversions",
+      "NAME": "conversions-name",
+      "TITLETABLE": "conversion",
+      "LINKEDCONTROLLACTION": "linked control-action",
+      "RULE": "rule",
+      "DROPDOWNTITLENAME": "actuator",
+      "DROPDOWNTITLE": "please choose a actuator",
+      "LINKEDPARENT": "linked actuator or sensor",
+      "DELETION": "if component-type = sensor or actuator - Conversion"
+    },
+    "LOSSSCENARIOS": {
+      "TITLE": "loss scenarios",
+      "NAME": "loss-scenario-name",
+      "TITLETABLE": "loss-scenario",
+      "GENERAL": {
+        "LINKEDCONTROLACTION": "linked control action",
+        "LINKEDUCA": "linked UCA",
+        "TYPE": "UCA category"
+      },
+      "CATEGORY": {
+        "CATEGORIES": "head category",
+        "FAILURES": {
+          "CONTROLLER": "controller"
+        },
+        "INADEQUATECA": {
+          "SUBCATEGORIES": "choose sub category",
+          "CONTROLLER": "controller",
+          "CONTROLACTION": "control action",
+          "DESCRIPTION": "Description of the failure of the algorithm",
+          "DESCRIPTIONIN": "Change / Degradation in the system",
+          "DESCRIPTIONBY": "Attacker",
+          "DESCRIPTIONPRO": "Procedure of the attacker"
+        },
+        "UNSAFECI": {
+          "SUBCATEGORY": "UCA received from another controller (already addressed when considering UCAs from other controllers)",
+          "CONTROLACTION": "control action",
+          "SOURCECONTROLLER": " source controller",
+          "TARGETCONTROLLER": "target controller"
+        },
+        "INADEQUATEPM": {
+          "SUBCATEGORIES": "choose sub category",
+          "CONTROLLER": "controller",
+          "INPUT": "input",
+          "SENSOR": "sensor",
+          "FEEDBACK": "feedback",
+          "REASON": "reason description",
+          "POSSIBLE": "Add possible reason - for not received information",
+          "INPUTBOX": "input box",
+          "WRONG": "Wrong controller internal belief",
+          "WRONGC": "Wrong controller internal belief",
+          "POSSIBLEREASON": "Add possible reason - for missing information"
+        }
+      }
+    },
+    "IMPEMENTATIONCONSTRAINTS": {
+      "TITLE": "implementation constraints",
+      "NAME": "implementation-constraints-name",
+      "TITLETABLE": "implementation-constraints",
+      "LINKEDLOSSSCENARIOS": "linked loss-scenarios",
+      "LINKEDCONTROLLERCONSTRAINTS": "linked controller-constraints",
+      "LINKEDUCA": "linked unsafe-control-action"
+    }
+  }
+}

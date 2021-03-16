@@ -1,0 +1,153 @@
+<div (mouseup)="showHint()">
+  <img
+    *ngIf="isStep2"
+    title="InputBox"
+    [src]="getIconPath('input_box')"
+    width="100%"
+    height="100%"
+    (dragstart)="drag($event, ArrowAndBoxType.InputBox, CSShape.BOX)"
+    draggable="true"
+  />
+</div>
+<div (mouseup)="showHint()">
+  <img
+    *ngIf="isStep2"
+    title="OutputBox"
+    [src]="getIconPath('output_box')"
+    width="100%"
+    height="100%"
+    (dragstart)="drag($event, ArrowAndBoxType.OutputBox, CSShape.BOX)"
+    draggable="true"
+  />
+</div>
+<div (mouseup)="showHint()">
+  <img
+    *ngIf="isStep2"
+    title="TextBox"
+    [src]="getIconPath('text_box')"
+    width="100%"
+    height="100%"
+    (dragstart)="drag($event, ArrowAndBoxType.TextBox, CSShape.BOX)"
+    draggable="true"
+  />
+</div>
+<hr *ngIf="isStep2" />
+<div (mouseup)="showHint()">
+  <img
+    *ngIf="isStep2"
+    title="DashedBox"
+    [src]="getIconPath('dashed_box')"
+    width="100%"
+    height="100%"
+    (dragstart)="drag($event, ArrowAndBoxType.DashedBox, CSShape.BOX)"
+    draggable="true"
+  />
+</div>
+<hr *ngIf="isStep2" />
+<div (mouseup)="showHint()">
+  <img
+    *ngIf="isStep2"
+    title="Controller"
+    [src]="getIconPath('controller')"
+    width="100%"
+    height="100%"
+    (dragstart)="drag($event, ArrowAndBoxType.Controller, CSShape.BOX)"
+    draggable="true"
+  />
+</div>
+<div (mouseup)="showHint()">
+  <img
+    *ngIf="isStep2"
+    title="Actuator"
+    [src]="getIconPath('actuator')"
+    width="100%"
+    height="100%"
+    (dragstart)="drag($event, ArrowAndBoxType.Actuator, CSShape.BOX)"
+    draggable="true"
+  />
+</div>
+<div (mouseup)="showHint()">
+  <img
+    *ngIf="isStep2"
+    title="Sensor"
+    [src]="getIconPath('sensor')"
+    width="100%"
+    height="100%"
+    (dragstart)="drag($event, ArrowAndBoxType.Sensor, CSShape.BOX)"
+    draggable="true"
+  />
+</div>
+<div (mouseup)="showHint()">
+  <img
+    *ngIf="isStep2"
+    title="Controlled Process"
+    [src]="getIconPath('controlled_process')"
+    width="100%"
+    height="100%"
+    (dragstart)="drag($event, ArrowAndBoxType.ControlledProcess, CSShape.BOX)"
+    draggable="true"
+  />
+</div>
+<hr *ngIf="isStep2" />
+<div (mouseup)="showHint(true)">
+  <img
+    *ngIf="isStep2"
+    title="Control Action"
+    [src]="getIconPath('control action')"
+    width="100%"
+    height="100%"
+    (dragstart)="drag($event, ArrowAndBoxType.ControlAction, CSShape.ARROW)"
+    draggable="true"
+  />
+</div>
+<div (mouseup)="showHint(true)">
+  <img
+    *ngIf="isStep2"
+    title="Feedback"
+    [src]="getIconPath('feedback')"
+    width="100%"
+    height="100%"
+    (dragstart)="drag($event, ArrowAndBoxType.Feedback, CSShape.ARROW)"
+    draggable="true"
+  />
+</div>
+<div (mouseup)="showHint(true)">
+  <img
+    *ngIf="isStep2"
+    title="Input"
+    [src]="getIconPath('input')"
+    width="100%"
+    height="100%"
+    (dragstart)="drag($event, ArrowAndBoxType.Input, CSShape.ARROW)"
+    draggable="true"
+  />
+</div>
+<div (mouseup)="showHint(true)">
+  <img
+    *ngIf="isStep2"
+    title="Output"
+    [src]="getIconPath('output')"
+    width="100%"
+    height="100%"
+    (dragstart)="drag($event, ArrowAndBoxType.Output, CSShape.ARROW)"
+    draggable="true"
+  />
+</div>
+<hr />
+<div class="container">
+  <mat-icon title="Save" (click)="saveCS()">check</mat-icon>
+</div>
+<div class="container">
+  <mat-icon title="Cancel" (click)="cancelCS()">clear</mat-icon>
+</div>
+<hr />
+<div class="container">
+  <mat-icon title="Zoom In" (click)="zoom(true)">add</mat-icon>
+</div>
+<div class="container">
+  <mat-icon title="Zoom Out" (click)="zoom(false)">remove</mat-icon>
+</div>
+<!-- <hr *ngIf="isStep2" />
+<div *ngIf="isStep2" class="container">
+  <mat-slide-toggle color='primary' [checked]="itsFishTime" (change)="itsFishTime = !itsFishTime"></mat-slide-toggle>
+</div> -->

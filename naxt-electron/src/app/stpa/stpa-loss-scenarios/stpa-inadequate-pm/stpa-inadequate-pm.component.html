@@ -1,0 +1,132 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-12 row-1">
+      <naxt-dropdown-control
+        [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.SUBCATEGORIES' | translate"
+        [dropdownList]="listofSubCategories"
+        [(value)]="chosenSubCategory"
+        (valueChange)="onChangeChosenSubCategoryChange($event)"
+      ></naxt-dropdown-control>
+    </div>
+    <div class="col-1 row-2">
+      <naxt-dropdown-control
+        [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.CONTROLLER' | translate"
+        [dropdownList]="dropDownListController"
+        [(value)]="chosenController"
+        (valueChange)="onChangeChosenControllerChange($event)"
+      ></naxt-dropdown-control>
+    </div>
+    <div class="col-2 row-2">
+      <naxt-dropdown-control
+        [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.INPUT' | translate"
+        [dropdownList]="dropDownListInput"
+        [(value)]="chosenInput"
+        (valueChange)="onChangeChosenInputChange($event)"
+      ></naxt-dropdown-control>
+    </div>
+    <div class="col-1 row-3">
+      <naxt-dropdown-control
+        [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.FEEDBACK' | translate"
+        [dropdownList]="dropDownListFeedback"
+        [(value)]="chosenFeedback"
+        (valueChange)="onChangeChosenFeedbackChange($event)"
+      ></naxt-dropdown-control>
+    </div>
+    <div class="col-1 row-4">
+      <naxt-dropdown-control
+        [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.SENSOR' | translate"
+        [dropdownList]="dropDownListSensor"
+        [(value)]="chosenSensor"
+        (valueChange)="onChangeChosenSensorChange($event)"
+      ></naxt-dropdown-control>
+    </div>
+
+    <ng-container *ngIf="chosenSubCategory === correctButInterpretedWrong">
+      <div class="col-2 row-3">
+        <naxt-dropdown-control
+          [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.INPUTBOX' | translate"
+          [dropdownList]="dropDownListBoxes"
+          [(value)]="chosenInputBox"
+          (valueChange)="onChangeChosenInputBoxChange($event)"
+        ></naxt-dropdown-control>
+      </div>
+
+      <div class="col-2 row-4">
+        <naxt-multi-line-text
+          [maxRows]="6"
+          [(value)]="descriptionWrong"
+          (valueChange)="onChangeDescriptionWrongChange($event)"
+          [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.WRONG' | translate"
+        >
+        </naxt-multi-line-text>
+      </div>
+      <div class="col-2 row-5">
+        <naxt-multi-line-text
+          [maxRows]="6"
+          [(value)]="descriptionReason"
+          (valueChange)="onChangeDescriptionReasonChange($event)"
+          [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.REASON' | translate"
+        >
+        </naxt-multi-line-text>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="chosenSubCategory === incorrect">
+      <div class="col-2 row-3">
+        <naxt-dropdown-control
+          [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.POSSIBLEREASON' | translate"
+          [dropdownList]="listofPossibleFeedbackReason"
+          [(value)]="chosenPossibleFeedbackReason"
+          (valueChange)="onChangeChosenPossibleFeedbackReasonChange($event)"
+        ></naxt-dropdown-control>
+      </div>
+      <div class="col-2 row-4">
+        <naxt-multi-line-text
+          [maxRows]="3"
+          [(value)]="descriptionReason"
+          [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.REASON' | translate"
+          (valueChange)="onChangeDescriptionReasonChange($event)"
+        >
+        </naxt-multi-line-text>
+      </div>
+      <!--      <div class="col-2 row-5">-->
+      <!--        <naxt-multi-line-text-->
+      <!--          [maxRows]="3"-->
+      <!--          [(value)]="descriptionReason"-->
+      <!--          [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.REASON' | translate"-->
+      <!--          (valueChange)="onChangeDescriptionReasonChange($event)"-->
+      <!--        >-->
+      <!--        </naxt-multi-line-text>-->
+      <!--      </div>-->
+    </ng-container>
+
+    <ng-container *ngIf="chosenSubCategory === notReceived">
+      <div class="col-2 row-3">
+        <naxt-multi-line-text
+          [maxRows]="3"
+          [(value)]="descriptionWrong"
+          (valueChange)="onChangeDescriptionWrongChange($event)"
+          [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.WRONG' | translate"
+        >
+        </naxt-multi-line-text>
+      </div>
+      <div class="col-2 row-4">
+        <naxt-dropdown-control
+          [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.POSSIBLEREASON' | translate"
+          [dropdownList]="listofPossibleSensorReason"
+          [(value)]="chosenPossibleSensorReason"
+          (valueChange)="onChangeChosenPossibleSensorReasonChange($event)"
+        ></naxt-dropdown-control>
+      </div>
+      <div class="col-2 row-5">
+        <naxt-multi-line-text
+          [maxRows]="3"
+          [(value)]="descriptionReason"
+          [label]="'STPA.LOSSSCENARIOS.CATEGORY.INADEQUATEPM.REASON' | translate"
+          (valueChange)="onChangeDescriptionReasonChange($event)"
+        >
+        </naxt-multi-line-text>
+      </div>
+    </ng-container>
+  </div>
+</div>

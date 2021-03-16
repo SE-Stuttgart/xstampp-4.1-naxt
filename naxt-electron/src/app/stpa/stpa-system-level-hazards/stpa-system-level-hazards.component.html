@@ -1,0 +1,73 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-table
+        #table
+        [rowData]="hazardData"
+        [columnDefinitions]="columns"
+        [showStateColumn]="true"
+        [showDeleteColumn]="true"
+        [detailRowTemplate]="_subTemplate_"
+        (addEmit)="createHazard()"
+        [deleteObjects]="['STPA.SUBHAZARD.TITLE' | translate]"
+      ></naxt-table>
+    </div>
+  </div>
+
+  <ng-template #_subTemplate_ let-row="row">
+    <div class="naxt-sub-detail-grid">
+      <div class="col-12 detail-heading">
+        <h4>{{ 'STPA.SYSTEMLEVELHAZARDS.TITLETABLE' | translate }}</h4>
+      </div>
+
+      <div class="col-1 row-1">
+        <naxt-text-control [(value)]="row.name" [label]="'STPA.NAME' | translate"></naxt-text-control>
+      </div>
+
+      <div class="col-1 row-2">
+        <naxt-chip-controller
+          [singleChip]="false"
+          [chipList]="row?.lossChips"
+          [label]="'STPA.SYSTEMLEVELHAZARDS.LINKEDLOSSES' | translate"
+          (addChip)="addLossLink(row, $event)"
+          (removeChip)="removeLossLink(row, $event)"
+        ></naxt-chip-controller>
+      </div>
+      <div class="col-1 row-3">
+        <naxt-chip-controller
+          [singleChip]="false"
+          [chipList]="row?.systemConstraintChips"
+          [label]="'STPA.SYSTEMLEVELHAZARDS.LINKEDSAFETYCONSTRAINT' | translate"
+          (addChip)="addSystemConstraintLink(row, $event)"
+          (removeChip)="removeSystemConstraintLink(row, $event)"
+        ></naxt-chip-controller>
+      </div>
+      <!-- <div class="col-1 row-4">
+         <naxt-chip-controller
+          [singleChip]="false"
+          [chipList]="row?.ucaChips"
+          [label]="'STPA.SYSTEMLEVELHAZARDS.LINKEDUCA' | translate"
+          [readonly]="true"
+        ></naxt-chip-controller> 
+      </div> -->
+      <div class="col-1 row-4">
+        <naxt-chip-controller
+          [singleChip]="false"
+          [chipList]="row?.subHazardChips"
+          [label]="'STPA.SYSTEMLEVELHAZARDS.SUBHAZARD' | translate"
+          [readonly]="true"
+        ></naxt-chip-controller>
+      </div>
+      <div class="col-2 row-4">
+        <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+      </div>
+      <div class="col-2 row-1">
+        <naxt-multi-line-text
+          [maxRows]="11"
+          [(value)]="row.description"
+          [label]="'STPA.DESCRIPTION' | translate"
+        ></naxt-multi-line-text>
+      </div>
+    </div>
+  </ng-template>
+</div>

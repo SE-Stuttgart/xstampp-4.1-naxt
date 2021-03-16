@@ -1,0 +1,122 @@
+<div class="controller-wrapper">
+  <mat-form-field class="example-chip-list">
+    <mat-chip-list #chipList aria-label="chip selection">
+      <mat-chip
+        *ngFor="let chip of selectedChips; let i = index"
+        [selectable]="selectable"
+        [removable]="!chip.fixed"
+        [disableRipple]="true"
+        (removed)="remove(chip)"
+      >
+        <button
+          *ngIf="i > 0"
+          [class.toggle]="chip?.andOperator"
+          mat-button
+          class="toggle-button"
+          (click)="operatorClick($event, chip, 'and')"
+        >
+          {{ 'STRINGS.FILTER.AND' | translate }}
+        </button>
+        <button
+          *ngIf="i > 0"
+          [class.toggle]="chip?.orOperator"
+          mat-button
+          class="toggle-button"
+          (click)="operatorClick($event, chip, 'or')"
+        >
+          {{ 'STRINGS.FILTER.OR' | translate }}
+        </button>
+        <button
+          [class.toggle]="chip?.notOperator"
+          mat-button
+          class="toggle-button"
+          (click)="operatorClick($event, chip, 'not')"
+        >
+          {{ 'STRINGS.FILTER.NOT' | translate }}
+        </button>
+
+        <div class="pp">{{ '&nbsp;-&nbsp;' + chip.label + getLabel(chip) + '&nbsp;' }}</div>
+
+        <input
+          *ngIf="!chip.stateChip"
+          matInput
+          (keydown.backspace)="$event.stopPropagation()"
+          (keydown.space)="$event.stopPropagation()"
+          class="stopBackSpace"
+          [placeholder]="'STRINGS.FILTER.PLACEHOLDER' | translate"
+          [(ngModel)]="chip.value"
+          (ngModelChange)="emitSearchList()"
+        />
+        <mat-icon matChipRemove *ngIf="!chip.fixed">cancel</mat-icon>
+      </mat-chip>
+      <input
+        [naxtTabDirective]="cntxt"
+        [placeholder]="'STRINGS.FILTER.PLACEHOLDER' | translate"
+        #chipInput
+        [formControl]="formControl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)"
+      />
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let chips of filteredChips | async" [value]="chips.label">
+        {{ chips.label }}
+      </mat-option>
+      <ng-container *ngIf="showStateFilter">
+        <div class="list-separator"></div>
+        <mat-option [value]="EntityState.TODO">TODO</mat-option>
+        <mat-option [value]="EntityState.DOING">DOING</mat-option>
+        <mat-option [value]="EntityState.DONE">DONE</mat-option>
+      </ng-container>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button
+    *ngIf="!filterShowMenu && !hideAdd; else menuTemplate"
+    mat-mini-fab
+    color="primary"
+    aria-label="Example icon button with a delete icon"
+    (click)="addEmit.emit()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+  <ng-template #menuTemplate>
+    <div *ngIf="!hideAdd && !!menuList">
+      <button mat-mini-fab [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>add</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <p class="matMenuTitle">{{ parent[0] }}</p>
+        <button mat-menu-item *ngFor="let element of menuList" (click)="menuClick(element)">
+          {{ element.name }}
+        </button>
+        <p *ngIf="menuList.length === 0" class="empty">&lt;none&gt;</p>
+      </mat-menu>
+    </div>
+    <div *ngIf="!hideAdd && !!menuMapList">
+      <button mat-mini-fab [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>add</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <p class="matMenuTitle">{{ parent[0] }}</p>
+        <p *ngIf="menuMapList.nestedModels.length === 0" class="empty">&lt;none&gt;</p>
+        <ng-container *ngFor="let element of menuMapList.nestedModels; index as i">
+          <button mat-menu-item [matMenuTriggerFor]="subMenu">
+            {{ element.name }}
+          </button>
+          <mat-menu #subMenu="matMenu">
+            <p class="matMenuTitle">{{ parent[1] }}</p>
+            <p *ngIf="element.nestedModels.length === 0" class="empty">&lt;none&gt;</p>
+            <button mat-menu-item *ngFor="let link of element.nestedModels" (click)="menuMapClick(element, link)">
+              {{ link.name }}
+            </button>
+          </mat-menu>
+        </ng-container>
+      </mat-menu>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template> </ng-template>

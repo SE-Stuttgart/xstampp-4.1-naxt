@@ -1,0 +1,89 @@
+<div class="table-container">
+  <div class="filter">
+    <naxt-filter-component
+      [filterList]="filterList"
+      [showStateFilter]="showStateColumn"
+      [filterShowMenu]="filterShowMenu"
+      [menuList]="menuList"
+      [menuMapList]="menuMapList"
+      [hideAdd]="hideAdd"
+      [parent]="parent"
+      (searchList)="updateTableFilter($event)"
+      (addEmit)="addEmit.emit()"
+      (menuEmit)="menuEmit.emit($event)"
+      (menuMapEmit)="menuMapEmit.emit($event)"
+    ></naxt-filter-component>
+  </div>
+
+  <div class="table-wrapper">
+    <table
+      mat-table
+      matSort
+      matSortActive="tableId"
+      matSortDirection="asc"
+      [dataSource]="dataSource"
+      multiTemplateDataRows
+      class="mat-elevation-z8"
+    >
+      <ng-container matColumnDef="state">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef></th>
+        <td
+          mat-cell
+          *matCellDef="let row"
+          [class.todo]="row.state === 'TODO'"
+          [class.doing]="row.state === 'DOING'"
+          [class.done]="row.state === 'DONE'"
+        ></td>
+      </ng-container>
+      <ng-container matColumnDef="tableId">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>ID</th>
+        <td mat-cell (click)="rowClickAction(row)" *matCellDef="let row">{{ row?.tableId }}</td>
+      </ng-container>
+      <ng-container matColumnDef="{{ column.key }}" *ngFor="let column of visibleColumDefinitions | async">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>{{ column.label }}</th>
+        <td mat-cell class="test-cell" (click)="rowClickAction(row)" *matCellDef="let row">
+          {{ shortenString(row, column.key) }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="deleteColumn">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row">
+          <button
+            class="table-button"
+            (click)="deleteClickAction($event, row)"
+            mat-icon-button
+            aria-label="Example icon-button with a heart icon"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let row" [attr.colspan]="(visibleColumns | async).length">
+          <div
+            class="row-detail"
+            [ngClass]="{ 'expanded-row-detail': isExpanded(row) }"
+            [@detailExpand]="isExpanded(row) ? 'expanded' : 'collapsed'"
+            (@detailExpand.done)="scrollIntoView()"
+          >
+            <ng-container
+              [ngTemplateOutlet]="detailRowTemplate"
+              [ngTemplateOutletContext]="{ $implicit: row, row: row, table: this }"
+            ></ng-container>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="visibleColumns | async; sticky: true"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: visibleColumns | async"
+        class="row"
+        [class.expanded-row]="isExpanded(row)"
+      ></tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+    </table>
+  </div>
+</div>

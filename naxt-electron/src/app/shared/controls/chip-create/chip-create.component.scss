@@ -1,0 +1,19 @@
+:host {
+  flex: 1 0 100%;
+  margin-bottom: 5px;
+}
+.controller-wrapper {
+  height: 66px;
+  //max-height: 75px; min-height: 66px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: flex-start;
+  align-self: center;
+
+  .content {
+    flex: 1 0 100%;
+    padding-left: 10px;
+  }
+}

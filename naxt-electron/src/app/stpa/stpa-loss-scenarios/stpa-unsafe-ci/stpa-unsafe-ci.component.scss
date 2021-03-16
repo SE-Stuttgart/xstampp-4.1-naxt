@@ -1,0 +1,5 @@
+@import 'style/table-grid.scss';
+
+.naxt-detail-grid {
+  @include naxt-detail-grid(2, 3, false);
+}

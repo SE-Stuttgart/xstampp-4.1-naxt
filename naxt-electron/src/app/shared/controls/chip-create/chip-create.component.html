@@ -1,0 +1,24 @@
+<div class="controller-wrapper">
+  <mat-form-field class="example-chip-list">
+    <mat-chip-list class="chip-list" #chipListRef aria-label="chip selection" [required]="required">
+      <mat-chip
+        *ngFor="let chip of chipList; let i = index"
+        [selectable]="selectable"
+        [disableRipple]="true"
+        (removed)="remove(chip)"
+      >
+        {{ chip }}
+        <mat-icon *ngIf="!readonly" matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <input
+        [placeholder]="label"
+        [matChipInputFor]="chipListRef"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)"
+        matTooltip="Insert by pressing enter"
+        matTooltipPosition="above"
+      />
+    </mat-chip-list>
+  </mat-form-field>
+</div>

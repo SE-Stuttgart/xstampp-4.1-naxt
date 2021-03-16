@@ -1,0 +1,27 @@
+<div *ngIf="!editorConfigs; else elseBlock" class="controller-wrapper">
+  <mat-form-field class="content">
+    <textarea
+      matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="1"
+      [cdkAutosizeMaxRows]="maxRows"
+      [readonly]="readonlyTextArea"
+      [ngModel]="value"
+      (ngModelChange)="onChange($event)"
+      [placeholder]="label"
+    ></textarea>
+  </mat-form-field>
+</div>
+
+<ng-template #elseBlock>
+  <div class="div-wrapper">
+    <!--    <p>{{ value }}</p>-->
+    <!--    <p>{{ getNoHtml(value) }}</p>-->
+    <quill-editor
+      [formats]="['bold', 'header', 'italic', 'link', 'indent', 'direction', 'align', 'mention', 'indent']"
+      [ngModel]="value"
+      (ngModelChange)="valueChange.emit($event)"
+      [modules]="modules"
+    ></quill-editor>
+  </div>
+</ng-template>

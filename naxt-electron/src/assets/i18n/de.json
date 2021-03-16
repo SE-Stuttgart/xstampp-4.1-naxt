@@ -1,0 +1,376 @@
+{
+  "LTL": {
+    "ERROR": "FEHLER - Term ist zyklisch!",
+    "DELETED": "WARNUNG - Variable nicht gefunden!",
+    "STATEDEL": "WARNUNG - Zustand nicht gefunden!",
+    "UCADEL": "WARNING - Uca nicht gefunden!",
+    "EDIT": "Term bearbeiten",
+    "SAVE": "Term speichern",
+    "HELP": "Hilfe"
+  },
+  "TABLE": {
+    "DIALOG": {
+      "HEADING": "Lösch Dialog",
+      "ACCEPT": "Löschen",
+      "DISMISS": "Abbrechen",
+      "TEXT1": "Wirklich ",
+      "TEXT2": " löschen ?",
+      "TEXT3": "Die folgenden angehängten Komponenten werden auch gelöscht:"
+    }
+  },
+  "PAGES": {
+    "HOME": {
+      "TITLE": "NAXT - Startseite",
+      "CAST":"neues CAST Projekt",
+      "STPA":"neues STPA Projekt",
+      "OPEN":"öffne Projekt",
+      "HELP": "Hilfe",
+      "STPAH": "Stpa Handbuch",
+      "CASTH": "Cast Handbuch"
+    }
+  },
+  "PLUSBUTTONPARENT": {
+    "RECOMMENDATION": "wähle Empfehlung",
+    "HAZARD": "wähle Hazard",
+    "CONSTRAINT": "wähle Safety-Contstraint",
+    "SUBHAZARD": "wähle Sub-Hazard",
+    "CONTROLLER": "wähle Controller",
+    "CONTROLACTION": "wähle Control-Action",
+    "PROCESSMODEL": "wähle Processmodel",
+    "UCA": "wähle UCA",
+    "LOSSSCENARIO": "wähle Loss Scenario"
+  },
+  "STRINGS": {
+    "CHANGE_LAN": "Sprache ändern!",
+    "FILTER": {
+      "AND": "AND",
+      "OR": "OR",
+      "NOT": "NOT",
+      "PLACEHOLDER": "Suche"
+    }
+  },
+  "DIALOG": {
+    "DISSMISS": "Abbrechen",
+    "ACCEPT": "OK",
+    "ERROR": "Input-Feld ist leer!",
+    "FATAL_ERROR": "Dialog error!"
+  },
+  "CAST": {
+    "NAME": "Name",
+    "DESCRIPTION": "Beschreibung",
+    "MAXLENGTHTEXT": "Maximale Länge 128 Zeichen",
+    "LINKEDDOCUMENTS":"verlinkte Dokumente",
+    "LINKEDDOCUMENT":"verlinktes Dokument",
+    "QUESTION":"Frage hinzufügen",
+    "BROWSE":"durchsuchen",
+    "INCORRECTURL":"die angegbene URL ist nicht aufrufbar",
+    "INCORRECTPATH":"das Dokument befindet sich nicht am angegbene Pfad",
+    "PATHLABEL":"wähle Pfad",
+    "URLLABEL":"URL eingeben",
+    "URL":"URL",
+    "PATH":"Pfad",
+    "QUESTIONANDANSWER": {
+      "TITLE": "Fragen & Antworten",
+      "QUESTION": "Fragen",
+      "ANSWER": "Antworten",
+      "COMPONENT": "verlinkte Komponente"
+    },
+    "OVERVIEW": {
+      "TITLE": "Übersicht"
+    },
+    "ACCIDENTDESCRIPTION": {
+      "TITLE": "Unfallbeschreibung"
+    },
+    "HAZARDS": {
+      "NAME": "Hazard-Name",
+      "TITLE": "Hazards",
+      "TITLETABLE": "Hazard",
+      "LINKEDHAZARD": "verlinkte Hazards",
+      "LINKEDCONSTRAINT": "verlinkte Constraints"
+    },
+    "CONSTRAINTS": {
+      "TITLE": "Constraints",
+      "NAME": "Constraint-Name",
+      "TITLETABLE": "Constraint",
+      "LINKEDHAZARD": "verlinkte Hazards"
+    },
+    "EVENTS": {
+      "TITLE": "Ereignisse",
+      "NAME": "Ereignis-name",
+      "TITLETABLE": "Ereignis"
+    },
+    "CONTROLSTRUCTURE": {
+      "TITLE": "Control Structure"
+    },
+    "SYSTEMCOMPONENTS": {
+      "TITLE": "System Komponenten",
+      "NAME": "System-Komponenten-Name",
+      "TITLETABLE": "Systemkomponente",
+      "TYPE": "Komponenten-Typ",
+      "PROCESSVARIABLE": "füge Prozess-Variablen zu"
+    },
+    "INFORMATIONFLOW": {
+      "TITLE": "Information Flow",
+      "NAME": "Information-Flow-Name",
+      "TITLETABLE": "Informationflow",
+      "TYPE": "infromation-flow-type"
+    },
+    "RESPONSIBILITIES": {
+      "TITLE": "Responsibilitites",
+      "NAME": "Responsibility-Name",
+      "TITLETABLE": "Responsibility",
+      "LINKEDCONSTRAINT": "verlinkte Constraints",
+      "LINKEDCONTROLLER": "verlinkter Controller"
+    },
+    "ROLEINTHEACCIDENT": {
+      "TITLE": "Rolle im Unfall",
+      "NAME": "Rolle-Name",
+      "TITLETABLE": "Rolle",
+      "RULE": "Rolle",
+      "FLAWS": "Fehler im mentalen Modell oder im Prozessmodell",
+      "BEHAVIOUR": "Erklärung des Verhaltens",
+      "COMPONENTTYPE": "Komponenten-Typ",
+      "CURRRENTVALUEPV": "aktuelle Werte beim Unfall",
+      "MISTAKESPV": "Fehler in den Prozessvariable",
+      "LINKEDCONTROLLER": "verlinkte Komponente der Control-Structure"
+    },
+    "COMMUNICATIONCOORDINATION": {
+      "TITLE": "Kommunikation und Koordination",
+      "NAME": "Kommunikation-und-Koordination-Name",
+      "LINKEDCONTROLLER": "Verbindung zwischen",
+      "LINKEDCONTROLLER2": " und "
+    },
+    "SAFETYINFORMATIONSYSTEM": {
+      "TITLE": "Safety-Information-System",
+      "NAME": "Safety-Information-System-Name"
+    },
+    "SAFETYMANAGEMENTSYSTEM": {
+      "TITLE": "Safety-Management-System",
+      "NAME": "Safety-Management-System-Name"
+    },
+    "SAFETYCULTURE": {
+      "TITLE": "Safety-Culture",
+      "NAME": "Safety-Culture-Name"
+    },
+    "CHANGESANDDYNAMICSOVERTIME": {
+      "TITLE": "Änderungen und Dynamiken im Laufe der Zeit",
+      "NAME": "Änderungen-und-Dynamiken-im-Laufe-der-Zeit-Name"
+    },
+    "INTERNALANDEXTERNAL": {
+      "TITLE": "Interne und externe wirtschaftliche und verwandte Faktoren",
+      "NAME": "interne-und-externe-wirtschaftliche-und-verwandte-Faktoren-Name"
+    },
+    "OTHERS": {
+      "TITLE": "Andere Faktoren",
+      "NAME": "andere-Faktoren-Name"
+    },
+    "RECOMMENDATIONS": {
+      "TITLE": "Empfehlungen",
+      "NAME": "Empfehlungen-Name",
+      "TITLETABLE": "Empfehlungen",
+      "DEPARTMENTNAME": "verantwortliche Abteilung / Person",
+      "LINKEDSUBRECOMMENDATIONS": "verlinkte Unterempfehlung"
+    },
+    "SUBRECOMMENDATIONS": {
+      "TITLE": "Unterempfehlungen",
+      "NAME": "Unterempfehlungen-Name",
+      "TITLETABLE": "Unterempfehlungen",
+      "DEPARTMENTNAME": "verantwortliche Abteilung / Person",
+      "LINKEDRECOMMENDATIONS": "verlinkte Empfehlung"
+    }
+  },
+
+  "STPA": {
+    "NAME": "Name",
+    "DESCRIPTION": "Beschreibung",
+    "MAXLENGTHTEXT": "Maximale Länge 128 Zeichen",
+    "OVERVIEW": {
+      "TITLE": "Übersicht"
+    },
+    "LOSSES": {
+      "TITLE": "Losses",
+      "NAME": "Loss-Name",
+      "TITLETABLE": "Loss",
+      "LINKEDHAZARD": "verlinkte Hazards"
+    },
+    "SYSTEMLEVELHAZARDS": {
+      "NAME": "Hazard-Name",
+      "TITLE": "System-Level Hazards",
+      "TITLETABLE": "Hazard",
+      "LINKEDLOSSES": "verlinkte Losses",
+      "LINKEDSAFETYCONSTRAINT": "verlinkte Safety-Constraints",
+      "LINKEDUCA": "verlinkte Unsafe-Control-Actions",
+      "SUBHAZARD": "verlinkte Sub-Hazards"
+    },
+    "SYSTEMLEVELSAFETYCONSTRAINTS": {
+      "TITLE": "System-Level Safety Constraints",
+      "NAME": "Safety-Constraint-Name",
+      "TITLETABLE": "Safety-Constraint",
+      "LINKEDHAZARD": "verlinkte Hazards",
+      "LINKEDSUBSAFETYCONSTRAINTS": "verlinkte Sub-Safety-Constraints"
+    },
+    "SUBHAZARDS": {
+      "TITLE": "Sub Hazards",
+      "NAME": "Sub-Hazard-Name",
+      "TITLETABLE": "Sub-Hazard",
+      "TITLESC": "sub-safety-constraint",
+      "NAMESC": "sub-safety-constraint-name",
+      "LINKEDHAZARD": "verlinkte Sub-Hazards",
+      "LINKEDSUBSAFETYCONSTRAINTS": "verlinkter Sub-Safety-Constraint",
+      "LINKEDUCA": "Unsafe-Control-Actions"
+    },
+    "SUBSAFETYCONSTRAINTS": {
+      "TITLE": "Sub Safety Constraints",
+      "NAME": "Sub-Safety-Constraint-Name",
+      "TITLETABLE": "Sub-Safety-Constraint",
+      "LINKEDSAFETYCONSTRAINT": "verlinkter Safety-Constraint",
+      "LINKEDSUBHAZARD": "verlinkter Sub-Hazard"
+    },
+    "CONTROLSTRUCTURE": {
+      "TITLE": "Control Structure",
+      "TITLE1": "Erweiterte Control Structure"
+    },
+    "SYSTEMCOMPONENTS": {
+      "TITLE": "System Komponenten",
+      "NAME": "System-Komponenten-Name",
+      "TITLETABLE": "Systemkomponente",
+      "TYPE": "Komponenten-Typ"
+    },
+    "INFORMATIONFLOW": {
+      "TITLE": "Information Flow",
+      "NAME": "Information-Flow-Name",
+      "TITLETABLE": "Informationflow",
+      "TYPE": "infromation-flow-type"
+    },
+    "RESPONSIBILITIES": {
+      "TITLE": "Responsibilities",
+      "NAME": "Responsibility-Name",
+      "TITLETABLE": "Responsibility",
+      "LINKEDCONSTRAINT": "verlinkte Constraints",
+      "LINKEDCONTROLLER": "verlinkter Controller",
+      "LINKEDSUBCONSTRAINT": "verlinkter Sub-Safety-Constraint"
+    },
+    "UCA": {
+      "TITLE": "Unsafe Control Actions",
+      "NAME": "UCA-Name",
+      "TITLETABLE": "UCA",
+      "DROPDOWNTITLE": "UCA Kategorien",
+      "LINKEDHAZARD": "verlinkte Hazards",
+      "LINKEDSUBHAZARD": "verlinkter Sub-Hazard",
+      "LINKEDCONTROLACTION": "verlinkte Control Action",
+      "DELETION": " wenn Komponenten-Type = ControlAction - UCA, Controller Constraint, Loss Scenario, Implementation Constraints"
+    },
+    "CONTROLLERCONSTRAINTS": {
+      "TITLE": "Controller Constraints",
+      "NAME": "Controller-Constraint-Name",
+      "TITLETABLE": "Controller-Constraint",
+      "LINKEDCONTROLLACTION": "verlinkte control action",
+      "UCANAME": "Unsafe-Control-Action-Name",
+      "DESCRIPTIONUCA": " Beschreibung der Unsafe-Control-Action",
+      "LINKEDUCA": "verlinkte Unsafe-Control-Action"
+    },
+    "PROCESSMODELS": {
+      "TITLE": "Process Models",
+      "NAME": "Processmodel-Name",
+      "TITLETABLE": "Processmodel",
+      "LINKEDCONTROLLER": "verlinkter Controller"
+    },
+    "PROCESSVARIABLES": {
+      "TITLE": "Process Variables",
+      "NAME": "Process-Variable-Name",
+      "NUSMV": "Name für NuSMV",
+      "SPIN": "Name für Promela",
+      "TITLETABLE": "Process-Variable",
+      "LINKEDPM": "verlinkte ProcessModels",
+      "LINKEDBOXINPUT": "verlinkter BoxInput",
+      "LINKEDRESPONSIBILITY": "verlinkte Responsibility",
+      "VALUE": "Process-Variable Wert",
+      "VALUES": "mögliche Werte",
+      "TYPE": "Process-Variable Typ",
+      "STATES": "Process-Variable Zustände"
+    },
+    "UCAREFINEMENT": {
+      "TITLE": "UCA Refinement",
+      "NAME": "Uca-Refinement-Name",
+      "TITLETABLE": "Uca-Refinement",
+      "TERM": "LTL-Term",
+      "HELP": "Hilfe",
+      "HELPTITLE": "LTL-Term - Hilfe",
+      "HELPBODY": "In den Einstellungen kann zwischen dem NuSMV und dem Promela Modus gewechselt werden.<br><br> Diese Symbole lösen Autocomplete-Funktionen aus:<br> @ - Liste aller Variablen<br> # - Liste der Enum-Zustände der Variablen<br> $ - Liste der Werte / Äquivalenzklassen der Variablen<br><br>Es gelten folgende regeln für Operatoren für NuSMV und Promela: <br> <br> && / || werden zum logischen und / oder in NuSMV und Promela<br> == ist der Test auf Gleichheit<br> % ist der Modulo-Operator <br> <br> Weiterhin können in den verschiedenen Modi, die weiteren Operatoren der Eingabesprachen verwendet werden.",
+      "HELPBODYUCA": "In den Einstellungen kann zwischen dem NuSMV und dem Promela Modus gewechselt werden.<br><br> Diese Symbole lösen Autocomplete-Funktionen aus:<br> § - Liste aller UCAs<br> @ - Liste aller Variablen<br> # - Liste der Enum-Zustände der Variablen<br> $ - Liste der Werte / Äquivalenzklassen der Variablen<br><br>Es gelten folgende regeln für Operatoren für NuSMV und Promela: <br> <br> && / || werden zum logischen und / oder in NuSMV und Promela<br> == ist der Test auf Gleichheit<br> % ist der Modulo-Operator <br> <br> Weiterhin können in den verschiedenen Modi, die weiteren Operatoren der Eingabesprachen verwendet werden."
+    },
+    "CONTROLALGORITHMS": {
+      "TITLE": "Control Algorithms",
+      "NAME": "Control-Algorithmus-Name",
+      "TITLETABLE": "Control-Algorithmus",
+      "LINKEDCONTROLLACTION": "verlinkte Control Action",
+      "RULE": "Rule",
+      "DROPDOWNTITLENAME": "Controller",
+      "DROPDOWNTITLE": "bitte Controller wählen",
+      "LINKEDCONTROLLER": "verlinkter Controller",
+      "DELETION": "wenn Komponenten-Type = Controller - Control Algorithmus"
+    },
+    "CONVERSIONS": {
+      "TITLE": "Conversions",
+      "NAME": "Conversions-Name",
+      "TITLETABLE": "Conversion",
+      "LINKEDCONTROLLACTION": "verlinkte Control Action",
+      "RULE": "Rule",
+      "DROPDOWNTITLENAME": "Actuator",
+      "DROPDOWNTITLE": "bitte Actuator wählen",
+      "LINKEDPARENT": "verlinkter Actuator oder Sensor",
+      "DELETION": "wenn Komponenten-Type = Sensor oder Actuator - Conversion"
+    },
+    "LOSSSCENARIOS": {
+      "TITLE": "Loss Scenarios",
+      "NAME": "Loss-Scenario-Name",
+      "TITLETABLE": "Loss-Scenario",
+      "GENERAL": {
+        "LINKEDCONTROLACTION": "verlinkte control action",
+        "LINKEDUCA": "verlinkte Unsafe-Control-Action",
+        "TYPE": "Unsafe-Control-Action Kategorie"
+      },
+      "CATEGORY": {
+        "FAILURES": {
+          "CONTROLLER": "Controller"
+        },
+        "INADEQUATECA": {
+          "SUBCATEGORIES": "wähle Sub-Kategorie",
+          "CONTROLLER": "Controller",
+          "CONTROLACTION": "Control Action",
+          "DESCRIPTION": "Description of the failure of the algorithm",
+          "DESCRIPTIONIN": "Change / Degradation in the system",
+          "DESCRIPTIONBY": "Attacker",
+          "DESCRIPTIONPRO": "Procedure of the attacker"
+        },
+        "UNSAFECI": {
+          "SUBCATEGORY": "UCA received from another controller (already addressed when considering UCAs from other controllers)",
+          "CONTROLACTION": "control action",
+          "SOURCECONTROLLER": " source controller",
+          "TARGETCONTROLLER": "target controller"
+        },
+        "INADEQUATEPM": {
+          "SUBCATEGORIES": "wähle Sub-Kategorie",
+          "CONTROLLER": "Controller",
+          "INPUT": "Input",
+          "SENSOR": "Sensor",
+          "FEEDBACK": "Feedback",
+          "REASON": "Reason Description",
+          "POSSIBLE": "Add possible reason - for not received information",
+          "INPUTBOX": "Input Box",
+          "WRONG": "Wrong controller internal belief",
+          "WRONGC": "Wrong controller internal belief",
+          "POSSIBLEREASON": "Add possible reason - for missing information"
+        }
+      }
+    },
+    "IMPEMENTATIONCONSTRAINTS": {
+      "TITLE": "Implementation Constraints",
+      "NAME": "Implementation-Constraints-Name",
+      "TITLETABLE": "Implementation-Constraint",
+      "LINKEDLOSSSCENARIOS": "verlinkte Loss Scenarios",
+      "LINKEDCONTROLLERCONSTRAINTS": "verlinkte Controller Constraints",
+      "LINKEDUCA": "verlinkte UCA"
+    }
+  }
+}

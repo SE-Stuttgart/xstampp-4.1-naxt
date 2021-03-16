@@ -1,0 +1,70 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-text-editor
+        *ngIf="!!communicationAndCoordination"
+        [(content)]="communicationAndCoordination.description"
+        [(linkedDokumentList)]="communicationAndCoordination.linkedDocuments"
+        (saveEmit)="save()"
+      ></naxt-text-editor>
+      <naxt-table
+        #table
+        [rowData]="communicationAndCoordinationData"
+        [columnDefinitions]="columns"
+        [showStateColumn]="true"
+        [showDeleteColumn]="true"
+        [detailRowTemplate]="_subTemplate_"
+        (addEmit)="createCommunicationAndCoordination()"
+      ></naxt-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #_subTemplate_ let-row="row">
+  <div class="naxt-sub-detail-grid">
+    <div class="col-12 detail-heading">
+      <h4>{{ 'CAST.COMMUNICATIONCOORDINATION.TITLE' | translate }}</h4>
+    </div>
+
+    <div class="col-1 row-1">
+      <naxt-text-control [(value)]="row.name" [label]="'CAST.NAME' | translate"></naxt-text-control>
+    </div>
+    <div class="col-1 row-2">
+      <naxt-chip-controller
+        [singleChip]="true"
+        [chipList]="row?.controllers1Chips"
+        [label]="'CAST.COMMUNICATIONCOORDINATION.LINKEDCONTROLLER' | translate"
+        (addChip)="addController1Link(row, $event)"
+        (removeChip)="removeController1Link(row, $event)"
+      ></naxt-chip-controller>
+    </div>
+    <div class="col-1 row-3">
+      <naxt-chip-controller
+        [singleChip]="true"
+        [chipList]="row?.controllers2Chips"
+        [label]="'CAST.COMMUNICATIONCOORDINATION.LINKEDCONTROLLER2' | translate"
+        (addChip)="addController2Link(row, $event)"
+        (removeChip)="removeController2Link(row, $event)"
+      ></naxt-chip-controller>
+    </div>
+    <div class="col-12 row-4">
+      <naxt-question-control
+        (addEmit)="createCACQuestionLink($event)"
+        *ngIf="!!table.expandedRow && table.expandedRow?.tableId === row?.tableId"
+        [(value)]="textOfTextfield"
+        [add]="[row, 'CAC', row.id]"
+      ></naxt-question-control>
+    </div>
+
+    <div class="col-2 row-1">
+      <naxt-multi-line-text
+        [maxRows]="8"
+        [(value)]="row.descriptionTextField"
+        [label]="'CAST.DESCRIPTION' | translate"
+      ></naxt-multi-line-text>
+    </div>
+    <div class="col-2 row-3">
+      <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,13 @@
+<div class="controller-wrapper">
+  <mat-button-toggle-group
+    name="fontStyle"
+    aria-label="Font Style"
+    class="content"
+    [(ngModel)]="value"
+    (ngModelChange)="onChange($event)"
+  >
+    <mat-button-toggle *ngFor="let item of toggleOptions" [value]="item" class="toggle-button">{{
+      item
+    }}</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

@@ -1,0 +1,64 @@
+@mixin naxt-detail-grid($cols, $rows, $showHeadline: true, $hasTextEditor: false) {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  //overflow-y: auto;
+  grid-template-columns: 10px repeat($cols, minmax(100px, 1fr)) 10px;
+  @if $showHeadline {
+    @if ($hasTextEditor) {
+      grid-template-rows: 55px minmax(71px, auto) repeat($rows - 1, 71px);
+    } @else {
+      grid-template-rows: 55px repeat($rows, minmax(71px, auto));
+    }
+  } @else {
+    grid-template-rows: 10px repeat($rows, minmax(71px, auto));
+  }
+  align-items: center;
+  justify-content: center;
+
+  div[class^='col-'] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: visible;
+    justify-content: flex-start;
+    align-self: flex-start;
+    align-content: flex-start;
+  }
+
+  .col- {
+    @for $i from 1 through $cols {
+      &#{$i} {
+        grid-column: #{$i + 1} / span 1;
+
+        @for $j from $i through $cols {
+          &#{$j} {
+            grid-column: #{$i + 1} / #{$j + 2};
+          }
+        }
+      }
+    }
+  }
+
+  .detail-heading {
+    grid-row: 1 / span 1;
+  }
+
+  .row- {
+    @for $i from 1 through $rows {
+      &#{$i} {
+        grid-row: #{$i + 1} / span 1;
+
+        @for $j from $i through $rows {
+          &#{$j} {
+            grid-row: #{$i + 1} / #{$j + 2};
+          }
+        }
+      }
+    }
+  }
+
+  .table-row {
+    height: 100%;
+  }
+}

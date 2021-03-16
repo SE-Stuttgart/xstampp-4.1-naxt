@@ -1,0 +1,76 @@
+name: Electron CD
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    steps:
+      - name: Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Use Node.js 13.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+      - name: npm install
+        working-directory: ./naxt-electron
+        run: |
+          npm install
+      - name: Publish Mac
+        if: matrix.os == 'macOS-latest'
+        working-directory: ./naxt-electron
+        run: |
+          npm run electron:mac
+      - name: Publish Windows
+        if: matrix.os == 'windows-latest'
+        working-directory: ./naxt-electron
+        run: |
+          npm run electron:windows
+      - name: Publish Linux
+        if: matrix.os == 'ubuntu-latest'
+        working-directory: ./naxt-electron
+        run: |
+          npm run electron:linux
+      - name: Cleanup artifacts Mac
+        if: matrix.os == 'macOS-latest'
+        run: |
+          cd naxt-electron
+          mkdir artifacts
+          mv ./release/*.dmg artifacts
+      - name: Cleanup artifacts Linux
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          cd naxt-electron
+          mkdir artifacts
+          mv ./release/*.AppImage artifacts
+      - name: Cleanup artifacts Win
+        if: matrix.os == 'windows-latest'
+        run: |
+          cd naxt-electron 
+          mkdir artifacts
+          mv ./release/*.exe ./artifacts
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: ${{ matrix.os }}
+          path: ./naxt-electron/artifacts
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: "./naxt-electron/artifacts/**"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

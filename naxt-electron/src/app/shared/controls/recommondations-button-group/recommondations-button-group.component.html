@@ -1,0 +1,19 @@
+<!-- <naxt-button-group [(value)]="value" (valueChange)="onChange($event)" [toggleOptions]="States"> </naxt-button-group> -->
+<div class="controller-wrapper">
+  <mat-button-toggle-group
+    #group="matButtonToggleGroup"
+    [(ngModel)]="value"
+    (ngModelChange)="onChange($event)"
+    class="content"
+  >
+    <mat-button-toggle [value]="States[0]" class="toggle-button">
+      {{ States[0] }}
+    </mat-button-toggle>
+    <mat-button-toggle [value]="States[1]" class="toggle-button" [disabled]="longterm">
+      {{ States[1] }}
+    </mat-button-toggle>
+    <mat-button-toggle [value]="States[2]" class="toggle-button" [disabled]="extensive">
+      {{ States[2] }}
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

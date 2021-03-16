@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+
+// for npm roboto-fontface package (to load local files)
+$roboto-font-path: '~roboto-fontface/fonts' !default;
+@import '~roboto-fontface/css/roboto/sass/roboto-fontface';
+
+// for npm material-icons package (to load local files)
+$material-icons-font-path: '~material-icons/iconfont/';
+@import '~material-icons/iconfont/material-icons.scss';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+// gloabel styles
+.naxt-body-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.naxt-nav {
+  height: 100%;
+  width: 100%;
+
+  .naxt-sidenav {
+    height: 100%;
+    width: 260px;
+  }
+
+  .naxt-container {
+    height: 100%;
+    width: calc(100vw - 260px);
+  }
+}
+
+// for material elements global styles
+mat-form-field {
+  width: calc(100% - 10px);
+}
+
+.ql-mention-list-container {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.mat-tooltip {
+  font-size: 0.8em !important;
+}

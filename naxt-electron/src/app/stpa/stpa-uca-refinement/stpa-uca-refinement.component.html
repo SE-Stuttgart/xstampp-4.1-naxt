@@ -1,0 +1,108 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-table
+        #table
+        [rowData]="ucaData"
+        [columnDefinitions]="columns"
+        [showStateColumn]="true"
+        [showDeleteColumn]="true"
+        [hideAdd]="true"
+        [detailRowTemplate]="_subTemplate_"
+      ></naxt-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #_subTemplate_ let-row="row">
+  <div class="naxt-sub-detail-grid">
+    <div class="col-12 detail-heading">
+      <h4>{{ 'STPA.UCAREFINEMENT.TITLETABLE' | translate }}</h4>
+      <button (click)="getHelp()" mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+        <mat-icon
+          [matTooltip]="'LTL.HELP' | translate"
+          matTooltipPosition="after"
+          matTooltipShowDelay="500"
+          id="button-color"
+          >help_outline</mat-icon
+        >
+      </button>
+    </div>
+
+    <div class="col-16 row-1 row-extra">
+      <ng-container *ngIf="!editMode; else editBlock">
+        <div class="left">
+          <button mat-raised-button color="primary" (click)="editMode = true">
+            {{ 'LTL.EDIT' | translate }}
+          </button>
+          <div #tooltip="matTooltip" matTooltip="Doubleclick to edit" matTooltipPosition="below"></div>
+        </div>
+        <div class="middle">
+          <p
+            class="text-field"
+            (mouseenter)="tooltip.show(500)"
+            (mouseleave)="tooltip.hide()"
+            (dblclick)="editMode = true"
+          >
+            {{ parsedTerm }}
+          </p>
+        </div>
+      </ng-container>
+
+      <ng-template #editBlock>
+        <div class="left">
+          <button mat-raised-button color="primary" (click)="editMode = false; parsedTerm = parseTerm(row?.formal)">
+            {{ 'LTL.SAVE' | translate }}
+          </button>
+        </div>
+        <div class="middle">
+          <naxt-multi-line-text
+            [maxRows]="7"
+            [(value)]="row.formal"
+            [editorConfigs]="editorConfigs"
+          ></naxt-multi-line-text>
+        </div>
+      </ng-template>
+    </div>
+
+    <div class="col-13 row-2">
+      <naxt-text-control [readonly]="true" [(value)]="row.name" [label]="'STPA.NAME' | translate"></naxt-text-control>
+    </div>
+
+    <div class="col-46 row-2">
+      <naxt-multi-line-text
+        [maxRows]="4"
+        [(value)]="row.formalDescription"
+        [label]="'STPA.DESCRIPTION' | translate"
+      ></naxt-multi-line-text>
+    </div>
+
+    <div class="col-1 row-3">
+      <ng-container *ngIf="!isPromelaMode">
+        <naxt-dropdown-control
+          [(value)]="mode"
+          [dropdownList]="[
+            { value: 'ltl', label: 'LTL-Check' },
+            { value: 'ctl', label: 'CTL-Check' }
+          ]"
+        ></naxt-dropdown-control>
+      </ng-container>
+    </div>
+    <div id="test" class="col-23 row 3">
+      <ng-container *ngIf="!isPromelaMode">
+        <mat-spinner-button (btnClick)="runNuSMVCheck(row?.formal)" [options]="btnOpts"></mat-spinner-button>
+        <button mat-raised-button color="primary" (click)="getNuSMV(row?.formal)">NuSMV-Term</button>
+      </ng-container>
+
+      <ng-container *ngIf="isPromelaMode">
+        <mat-spinner-button (btnClick)="runSpinCheck(row?.formal)" [options]="btnOpts1"></mat-spinner-button>
+        <button mat-raised-button color="primary" (click)="getPromela(row?.formal)">SPIN-Term</button>
+      </ng-container>
+    </div>
+    <!--    <div id="test" class="col-3 row-3" >-->
+    <!--    </div>-->
+    <div class="col-46 row-3">
+      <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+    </div>
+  </div>
+</ng-template>

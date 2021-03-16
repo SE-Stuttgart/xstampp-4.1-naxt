@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="content">
+    <naxt-checkbox-control [(value)]="isTrue" [label]="'Beschriftung'"></naxt-checkbox-control>
+    <naxt-checkbox-control [(value)]="isTrue" [label]="'Beschriftung'"></naxt-checkbox-control>
+    <br />
+    <p>
+      {{ isTrue ? 'True' : 'False' }}
+    </p>
+  </div>
+  <div class="text">
+    <naxt-text-control [(value)]="isString" [label]="'PAGES.HOME.TITLE' | translate"></naxt-text-control>
+  </div>
+  <div class="dropdown">
+    <naxt-dropdown-control [dropdownList]="arrayElements" [(value)]="testVal" [label]="titleDD">
+    </naxt-dropdown-control>
+  </div>
+  <div class="chip">
+    <naxt-chip-controller [singleChip]="true" [(chipList)]="arrayChipList" [label]="chipLabel"></naxt-chip-controller>
+  </div>
+  <div class="multilineText">
+    <naxt-multi-line-text
+      [label]="textareaTitle"
+      [maxRows]="maxRows"
+      [(value)]="descriptionText"
+    ></naxt-multi-line-text>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-table
+        #table
+        [rowData]="conversionData"
+        [columnDefinitions]="columns"
+        [showStateColumn]="true"
+        [showDeleteColumn]="true"
+        [detailRowTemplate]="_subTemplate_"
+        [filterShowMenu]="true"
+        [menuMapList]="menuMapConversion"
+        (menuMapEmit)="createConversion($event)"
+      ></naxt-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #_subTemplate_ let-row="row">
+  <div class="naxt-sub-detail-grid">
+    <div class="col-12 detail-heading">
+      <h4>{{ 'STPA.CONVERSIONS.TITLETABLE' | translate }}</h4>
+    </div>
+    <div class="col-1 row-1">
+      <naxt-multi-line-text
+        [(value)]="row.type"
+        [maxRows]="1"
+        [readonlyTextArea]="true"
+        [label]="'STPA.SYSTEMCOMPONENTS.TYPE' | translate"
+      ></naxt-multi-line-text>
+    </div>
+    <div class="col-1 row-2">
+      <naxt-chip-controller
+        [singleChip]="true"
+        [readonly]="true"
+        [chipList]="row?.parentChips"
+        [label]="'STPA.SYSTEMCOMPONENTS.LINKEDPARENT' | translate"
+      ></naxt-chip-controller>
+    </div>
+    <div class="col-1 row-3">
+      <naxt-chip-controller
+        [singleChip]="true"
+        [chipList]="row?.controlActionChips"
+        [label]="'STPA.CONVERSIONS.LINKEDCONTROLLACTION' | translate"
+        (addChip)="addControlActionLink(row, $event)"
+        (removeChip)="removeControlActionLink(row)"
+      ></naxt-chip-controller>
+    </div>
+    <div class="col-2 row-1">
+      <naxt-multi-line-text
+        [maxRows]="6"
+        [(value)]="row.conversion"
+        [label]="'STPA.CONVERSIONS.RULE' | translate"
+      ></naxt-multi-line-text>
+    </div>
+    <div class="col-2 row-3">
+      <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+    </div>
+  </div>
+</ng-template>

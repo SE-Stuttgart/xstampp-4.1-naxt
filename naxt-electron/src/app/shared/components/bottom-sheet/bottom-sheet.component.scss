@@ -1,0 +1,11 @@
+::ng-deep .mat-bottom-sheet-container {
+  min-width: 50vw !important;
+}
+
+.naxt-radio-group {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0px, 1fr));
+  grid-template-rows: 22px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}

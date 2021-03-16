@@ -1,0 +1,65 @@
+<div class="naxt-body-wrapper">
+  <div class="naxt-detail-grid">
+    <div class="col-1 row-1">
+      <naxt-table
+        #table
+        [rowData]="subHazardData"
+        [columnDefinitions]="columns"
+        [showStateColumn]="true"
+        [showDeleteColumn]="true"
+        [detailRowTemplate]="_subTemplate_"
+        [filterShowMenu]="true"
+        [menuList]="menuList"
+        (menuEmit)="createSubHazard($event)"
+        [parent]="['PLUSBUTTONPARENT.HAZARD' | translate]"
+        [deleteObjects]="['STPA.SUBSAFETYCONSTRAINTS.TITLE' | translate]"
+      ></naxt-table>
+    </div>
+  </div>
+</div>
+
+<ng-template #_subTemplate_ let-row="row">
+  <div class="naxt-sub-detail-grid">
+    <div class="col-12 detail-heading">
+      <h4>{{ 'STPA.SUBHAZARDS.TITLETABLE' | translate }}</h4>
+    </div>
+
+    <div class="col-1 row-1">
+      <naxt-text-control [(value)]="row.name" [label]="'STPA.SUBHAZARDS.NAME' | translate"></naxt-text-control>
+    </div>
+    <div class="col-1 row-2">
+      <naxt-chip-controller
+        [singleChip]="true"
+        [chipList]="row?.hazardChips"
+        [label]="'STPA.SUBHAZARDS.LINKEDHAZARD' | translate"
+        [readonly]="true"
+      ></naxt-chip-controller>
+    </div>
+    <div class="col-1 row-3">
+      <naxt-chip-controller
+        [singleChip]="true"
+        [chipList]="row?.subSystemConstraintChips"
+        [label]="'STPA.SUBHAZARDS.LINKEDSUBSAFETYCONSTRAINTS' | translate"
+        [readonly]="false"
+      ></naxt-chip-controller>
+    </div>
+    <div class="col-1 row-4">
+      <naxt-chip-controller
+        [singleChip]="false"
+        [chipList]="row?.unsafeControlActionChips"
+        [label]="'STPA.SUBHAZARDS.LINKEDUCA' | translate"
+        [readonly]="true"
+      ></naxt-chip-controller>
+    </div>
+    <div class="col-2 row-1">
+      <naxt-multi-line-text
+        [maxRows]="12"
+        [(value)]="row.description"
+        [label]="'STPA.DESCRIPTION' | translate"
+      ></naxt-multi-line-text>
+    </div>
+    <div class="col-2 row-4">
+      <naxt-states-button-group [(value)]="row.state"></naxt-states-button-group>
+    </div>
+  </div>
+</ng-template>
